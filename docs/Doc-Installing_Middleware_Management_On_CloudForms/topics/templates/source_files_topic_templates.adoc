@@ -1,0 +1,14 @@
+[[topic_template_source_files]]
+
+= Source Files for Topic Templates
+
+The source files for topic templates are in asciidoc format and stored in the Topic_Templates/topics directory:
+
+* task_template.adoc = task template
+
+* concept_template.adoc = concept template
+
+* reference_template.adoc = reference template
+
+* user_goal_steps.adoc = user story assembly template
+

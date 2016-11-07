@@ -1,0 +1,12 @@
+[[template_source_files]]
+
+= Source Files for Deliverable Build and Metadata
+
+The source files that build a deliverable and store project metadata are in asciidoc format in the Topic_Templates directory: 
+
+* master.adoc = build file that compiles topics into a deliverable
+
+* master-docinfo.xml = ?what do we use this file to store or do?
+
+* metadata.ini = ?what do we use this file to store or do?
+

@@ -1,0 +1,42 @@
+// Standard document attributes to be used in the documentation
+//
+// The following are shared by all documents
+:experimental:
+:toc:
+:toclevels: 4
+:numbered:
+:imagesdir: topics/images
+//
+// Product content attributes
+//
+:ProductName: Red Hat Middlemware Management
+:ProductShortName: middleware management
+:ProductRelease: 1
+:ProductVersion: 1.0
+//
+// Documentation publishing attributes used in the master-docinfo.xml file
+//
+:DocInfoProductName: my-red-hat-product
+:DocInfoProductNumber: 1.0
+//
+
+//
+:LinkProductDocHome:
+:LinkDownload:
+:DockerImageLocation:
+
+//
+// Book Names:
+//     Defining the book names in document attributes instead of hard-coding them in
+//     the master.adoc files and in link references. This makes it easy to change the
+//     book name if necessary.
+//     Since Hawkular will be integrating with different products, I've added "CF"
+//     for "CloudForms".
+//
+:CF_ReleaseNotesBookName: Red Hat Middleware Management Release Notes
+:CF_InstallBookName: Installing Red Hat Middleware Management with CloudForms
+:CF_ManagementBookName: Red Hat Middleware Management with CloudForms
+//
+:Hawkular_A_UpstreamBookName: My Title A (Upstream)
+:Hawkular_B_UpstreamBookName: My Title B (Upstream)
+:Hawkular_C_UpstreamBookName: My Title C (Upstream)

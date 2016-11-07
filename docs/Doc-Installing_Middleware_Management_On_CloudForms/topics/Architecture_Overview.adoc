@@ -1,0 +1,22 @@
+[[architecture_overview]]
+= Architecture Overview
+
+Within the {ProductName} solution, there are several distinct components:
+
+* *JBoss management server*: A JBoss Enterprise Application Platform (EAP) 7
+based application that collects metrics and events from middleware servers and
+sends that data to the CloudForms console.
+The Middleware Management Server also executes operations on middleware servers.
+* *Cassandra datastore*: Storage for metrics data based on the Apache Cassandra
+database management system.
+* *Middleware management Ruby Gem*: Ruby client to Hawkular Server.
+* *Middleware management provider*: The Ruby on Rails component shipped in CloudForms that
+communicates with the JBoss management server through the middleware management
+ Ruby Gem and provides a user interface for the middleware capabilities.
+* *Middleware management agents*: Agents that reside on the host where the JBoss
+middleware is running and push data to the JBoss management server.
+** Android
+** Go
+** Java
+** Python
+** Ruby

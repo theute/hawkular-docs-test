@@ -1,0 +1,37 @@
+include::topics/templates/document-attributes.adoc[]
+
+:CF_InstallBookName: Installing Red Hat Middleware Management with CloudForms
+:product-build:
+
+= {CF_InstallBookName}
+
+[[install_chapter_1]]
+== Chapter 1 - Prerequisites
+
+include::topics/Architecture_Overview.adoc[leveloffset=+2]
+
+include::topics/Installation_Prerequisites.adoc[leveloffset=+2]
+
+include::topics/Installation_Checklist.adoc[leveloffset=+2]
+
+[[install_chapter_2]]
+== Chapter 2 - Installation
+
+include::topics/Downloading_Middleware_Management.adoc[leveloffset=+2]
+
+include::topics/Installing_the_Middleware_Management_Server.adoc[leveloffset=+2]
+
+include::topics/Installing_the_Middleware_Management_Agent.adoc[leveloffset=+2]
+
+[[install_chapter_3]]
+== Chapter 3 - Initial Configuration
+
+include::../shared/Adding_a_Middleware_Management_Provider.adoc[leveloffset=+2]
+
+[appendix]
+= Reference Material
+
+// **********************************
+// * Appendix: Revision Information *
+// **********************************
+include::topics/templates/revision-info.adoc[]
