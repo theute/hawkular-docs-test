@@ -1,6 +1,6 @@
-include::topics/templates/document-attributes.adoc[]
+include::../shared/attributes.adoc[]
 
-:CF_InstallBookName: Installing Red Hat Middleware Management with CloudForms
+:CF_InstallBookName: Installing Red Hat Middleware Management with CloudForm
 :product-build:
 
 = {CF_InstallBookName}

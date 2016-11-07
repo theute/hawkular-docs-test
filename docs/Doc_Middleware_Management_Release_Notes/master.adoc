@@ -1,32 +1,24 @@
-include::topics/templates/document-attributes.adoc[]
+include::../shared/attributes.adoc[]
 
-:my-title-c:
+:CF_ReleaseNotesBookName: Red Hat Middleware Management Release Notes
 :product-build:
 
-= {MyTitleCBookName}
+= {CF_ReleaseNotesBookName}
 
-[[book_c_chapter_1]]
-== Chapter 1
+[[RN_intro]]
+== Introduction
 
-// Include topic-6
-include::topics/topic-6.adoc[leveloffset=+2]
 
-[[book_c_chapter_2]]
-== Chapter 2 {ProductShortName}
 
-// Include topic-7
-include::topics/topic-7.adoc[leveloffset=+2]
+[[RN_new_features]]
+== New Features
 
-[[book_c_chapter_3]]
-== Chapter 3 {ProductShortName}
 
-// Include shared topic-shared.adoc
-include::topics/topic-shared.adoc[leveloffset=+2]
+////
+Future section
+[[RN_resolved_issues]]
+== Resolved Issues
+////
 
-[appendix]
-= Reference Material
-
-// **********************************
-// * Appendix: Revision Information *
-// **********************************
-include::topics/templates/revision-info.adoc[]
+[[RN_known_issues]]
+== Known Issues
