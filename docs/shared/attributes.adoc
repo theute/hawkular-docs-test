@@ -36,5 +36,5 @@
 
 
 // -- TOOLING METADATA: DO NOT CHANGE ANYTHING BELOW THIS LINE! --
-:RepoTemplateVersion: 0.9
+:RepoTemplateVersion: 1.0
 :RepoTemplateCodeName: multi-topic-level

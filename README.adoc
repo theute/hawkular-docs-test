@@ -8,7 +8,7 @@
 
 = {RepoTemplateCodeName}  version {RepoTemplateVersion} Template Git Repository
 
-This is a fully-customizable Git repository that can be quickly and easily cloned to begin new documentation projects, or migrate old documentation projects into the repository structure that Content Services is converging on as part of its FY17 goals.
+This is a Git repository that was cloned from a template that uses the repository structure that Content Services is converging on as part of its FY17 goals.  This repo also contains template topics (concept, task, reference) to help non-technical writers write topic oriented content.
 
 == Terminology
 
@@ -88,56 +88,4 @@ In addition, this repository structure has been designed to work with the follow
 │       └── user_story_template.adoc
 └── resources
     ├── asciidoc-writing-guide.adoc
-    └── scripts
-        └── buildGuides.sh  (experimental)
 ----
-
-
-////
-Fix buildGuides.sh to work with multi-topic-level and re-include this info
-
-### Build the Example Books
-
-To build all of the example books, open a terminal, navigate to the root directory of this repository, and type the following command:
-
-        $ scripts/buildGuides.sh
-
-The script provides links to both AsciiDoctor and ccutil builds for each of the example books. Look at the rendered HTML to see how the preprocessor directives work to conditionally display content.
-
-You can also build a single guide. Navigate to the folder of the book you want to build and type the following command:
-
-        $ ./buildGuide.sh
-
-### Modify the Example Books for Your Documentation
-
-Copy the structure into your own local repository and make the following changes to customize this template for your implementation.
-
-1. Add your Asciidoc `*.adoc` files to the `topics/` folder.
-2. Replace the values in the `docs/shared/attributes.adoc` file for your documentation.
-  * Replace the product names and releases.
-  * Replace the book names.
-3. Use 'git mv' to rename the book folder names.
-
-        $ cd my-title-a
-        $ git mv my-title-a Installation_Guide.
-4. In a terminal, navigate to each book folder and add the symlink to the `topics/` using this command:
-
-        $ ln -s ../topics topics
-5. Within each book folder, modify the `master-docinfo.xml` file to set the appropriate title, product, release, and other values for the build of the book to the portal.
-6. Within each book folder, modify the `master.adoc` file to set the appropriate title, document attributes, and include the appropriate `topics/` content.
-7. When you are ready, run the scripts to build the guides and review the output to make sure it looks correct.
-////
-
-### {RepoTemplateCodeName} Revision History
-
-1.0::
-  * rename `My_Title_A`, `My_Title_B` and `Upstream_1` directories to `my-title-a`, `my-title-b` and `upstream-1` naming patterns to make navigating the Git repo as fast as possible. Thank you, jross, for making the suggestion!
-  * `docs/shared/templates/document-attributes.adoc` moved to `docs/shared/attributes.adoc`.
-  * all includes of `document-attributes.adoc` changed to correct for new attributes.adoc location.
-  * `scripts/buildGuides.sh` moved to `resources/scripts/buildGuides.sh`.
-  * latest version of the EAP team's `asciidoc-writing-guide.adoc` added to the `resources` directory for referential convenience.
-  * RepoTemplateVersion and RepoTemplateCodeName attributes defined in `docs/shared/attributes.adoc`.
-  * remove `topic-6` and `topic-7` because they are unnecessary for illustrative purposes.
-Pre-1.0::
-	* contains typo in repository structure diagram: "images — This folder contains all imagess"
-	* `buildGuides.sh` (98 lines, 86 sloc) does not work correctly because it had not been updated from the script developed by EAP
