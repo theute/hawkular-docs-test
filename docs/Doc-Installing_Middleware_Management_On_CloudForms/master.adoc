@@ -34,4 +34,4 @@ include::../shared/Adding_a_Middleware_Management_Provider.adoc[leveloffset=+2]
 // **********************************
 // * Appendix: Revision Information *
 // **********************************
-include::topics/templates/revision-info.adoc[]
+include::topics/revision-info.adoc[]

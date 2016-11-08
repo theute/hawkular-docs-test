@@ -1,9 +1,0 @@
-[[topic_examples]]
-
-= Topic Example Collection in Mojo
-
-The following Mojo page collects examples of task, concept, and reference topics. Some examples appear inside of a document to show how topics can be compiled into a deliverable. The collection is maintained by the Red Hat CCS team responsible for producing Red Hat product documentation. 
-
-* Topics: examples - https://mojo.redhat.com/docs/DOC-1087445 
-
-
