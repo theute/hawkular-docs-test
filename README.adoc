@@ -1,81 +1,58 @@
-= About this Repository
+# Hawkular Documentation Repository
 
-This is a Git repository that was cloned from a template that uses the repository structure that Content Services is converging on as part of its FY17 goals.  This repo also contains template topics (concept, task, reference) to help non-technical writers write topic oriented content.
+This repository contains all of the documentation for Red Hat middleware management (aka Hawkular). It uses the following directory structure:
 
-== Terminology
+.  
+├── README.md (This file)  
+├── docs (This folder contains all the asciidoc topics and top level content spec)  
+│   ├── My_Title_A  
+│   │   ├── master.adoc  
+│   │   ├── master-docinfo.xml  
+│   │   ├── buildGuide.sh (script to build this guide)  
+│   │   ├── topics -> ../topics/ (symlink to docs/topics/)  
+│   ├── My_Title_B  
+│   │   ├── master.adoc  
+│   │   ├── master-docinfo.xml  
+│   │   ├── buildGuide.sh (script to build this guide)  
+│   │   ├── topics -> ../topics/ (symlink to docs/topics/)  
+│   ├── My_Title_C  
+│   │   ├── master.adoc  
+│   │   ├── master-docinfo.xml  
+│   │   ├── buildGuide.sh (script to build this guide)  
+│   │   ├── topics -> ../topics/ (symlink to docs/topics/)
+│   ├── resources (style and writing guides, sample topic templates)
+│   ├── topics  
+│   │   │   ├── images (This folder contains all the images)  
+│   │   │   │   ├── *.png  
+│   │   │   ├── *.adoc (AsciiDoc topic files)   
+└── scripts (Contains scripts to automate the processes used to create and build documentation)  
+    └── buildGuides.sh (Builds the top-level Guides that live in the docs/ folder)  
 
-This repository uses the terms below as defined:
+### To Build the Books
 
-title::
-  A _title_ is a _deliverable_, i.e. a piece of content that is publishable using our toolchain. The toolchain refers to an AsciiDoc or DocBook deliverable publishable with it as a _title_, and this repo template adopts the same terminology.
-//  FIXME: note that title is also the name of a top-level directory that contains deliverables, each of which is defined by a master.adoc file in <titles>/<title>/<distro> subdirectories, provided the name change from docs -> title happens.
-distro::
-		A _distro_ is shorthand for "distribution" and is similar to the concept of a Linux distribution such as Fedora. A Linux distro is a customized "spin" of the Linux kernel along with a customized userland . A _distro_ for our purposes is a certain set of docs that is released under a certain downstream product or upstream project name.
-topic::
-  A _topic_ is considered to be an atomic chunk of content contained within a single file. It may or may not be self-contained. In the future, it is likely to adhere to a content model such as concept, task or reference.
+To build all of the books, open a terminal, navigate to the root directory of this repository, and type the following command:
 
-== Properties of this Repository
+        $ scripts/buildGuides.sh
 
-This repository structure has the following properties:
+The script provides links to both AsciiDoctor and ccutil builds for each of the example books.
 
-* It is verified to work with the Tooling team's Docs2Drupal (and soon Docs 2.0) publication systems.
-//* It is verified that repositories in this format can be localized without issues.
-* It is based on the "library," or "multi-title" repo model. This repository structure can work with any number of titles, from one to whatever.
-* The repository structure serves to make it clear which content —usually toics— is shared between different distributions ("distros") of a title, shared between more that one title, or potentially local to a single distro of a title.
-* The need to use file-naming conventions to signify levels of sharing (a.k.a. "Hungarian notation") is reduced due to the directory structure making it more explicit.
-* It can be mirrored between Github and Gitlab by the Tooling team.
-* Content from other repositories can be pulled into this one using the Git subtree (or Git submodels if absolutely necessary).
-* This repository structure has been structured so that it works with discrete chunks of content included from the `topics` and `topics/shared` subdirectories of each title. That is, it is based on, and will work best with, a _topic-oriented_ content development model.
+You can also build a single guide. Navigate to the folder of the book you want to build and type the following command:
 
-In addition, this repository structure has been designed to work with the following content development models:
+        $ ./buildGuide.sh
 
-* All content development is performed in the Github repository, for any number of titles and distros, provided that release versions are more-or-less in sync between those distros. The Github repository is mirrored to Gitlab solely in order to publish using the Docs2Drupal/Docs 2.0 toolchain (i.e. Pantheon).
-* Upstream content development  (by engineering, community members, etc.), for any number of titles and distros, happens in Github. Downstream development (by CCS, engineering), for any number of titles and distros, happens in Gitlab.
-* All content development for any number of titles and distros happens in Gitlab.
-* This repository structure is extremely flexible and should be able to account for any other development models. Contact mailto:dhensley@redhat.com[Silas] if you have any questions about whether this repository structure can work for your project.
+### To modify the Example Book for Your Documentation
 
-== Repository Structure Overview
+1. Add your Asciidoc `*.adoc` files to the `topics/` folder.
+2. Replace the values in the `docs/topics/document-attributes.adoc` file for your documentation.
+  * Replace the product names and releases.
+  * Replace the book names.
+3. Use 'git mv' to rename the book folder names.
 
-----
-├── README.adoc
-├── docs
-│   ├── Doc-Installing_Middleware_Management
-│   │   ├── topics
-│   │   │   ├── images
-│   │   │   ├── shared -> ../../shared
-│   │   │   ├── topic-1.adoc
-│   │   │   ├── topic-2.adoc
-│   │   │   ├── topic-4.adoc
-│   │   │   └── topic-5.adoc
-│   │   └── buildGuide.sh
-│   │   └── master-docinfo.xml
-│   │   └── master.adoc
-│   ├── Doc-Middleware_Management_Release_Notes
-│   │   └── buildGuide.sh
-│   │   └── master-docinfo.xml
-│   │   └── master.adoc
-── Doc-Using_ Middleware_Management
-│   │   ├── topics
-│   │   │   ├── images
-│   │   │   ├── shared -> ../../shared
-│   │   │   ├── topic-1.adoc
-│   │   │   ├── topic-2.adoc
-│   │   │   ├── topic-4.adoc
-│   │   │   └── topic-5.adoc
-│   │   └── buildGuide.sh
-│   │   └── master-docinfo.xml
-│   │   └── master.adoc
-│   └── shared
-│       ├── images
-│       ├── topic-shared-3.adoc
-│       └── topic-shared-6.adoc
-│       ├── attributes.adoc
-│   └── templates
-│       ├── images
-│       ├── concept_template.adoc
-│       └── reference-template.adoc
-│       ├── task_template.adoc
-│       └── user_story_template.adoc
-└── resources
-    ├── asciidoc-writing-guide.adoc
-----
+        $ cd My_Title_A
+        $ git mv My_Title_A Installation_Guide.
+4. In a terminal, navigate to each book folder and add the symlink to the `topics/` using this command:
+
+        $ ln -s ../topics topics
+5. Within each book folder, modify the `master-docinfo.xml` file to set the appropriate title, product, release, and other values for the build of the book to the portal.
+6. Within each book folder, modify the `master.adoc` file to set the appropriate title, document attributes, and include the appropriate `topics/` content.
+7. When you are ready, run the scripts to build the guides and review the output to make sure it looks correct.
