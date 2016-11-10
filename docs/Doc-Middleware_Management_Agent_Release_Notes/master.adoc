@@ -1,9 +1,8 @@
 include::/topics/document-attributes.adoc[]
 
-:Server_RN_BookName: Red Hat Middleware Management Server Release Notes
 :product-build:
 
-= {Server_RN_BookName}
+= {Agent_RN_BookName}
 
 [[RN_intro]]
 == Introduction

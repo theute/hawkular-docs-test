@@ -1,18 +1,10 @@
-// The following include would be superior so that the :RepoTemplateVersion and RepoTemplateCodeName attributes are defined in a single place, but includes aren't yet supported in AsciiDoc READMEs on Gitlab.
-// include::topics/shared/attributes.adoc[]
-// Vote with your emojis! https://gitlab.com/gitlab-org/gitlab-ce/issues/18045
-
-// These two attributes must match their eponymous counterparts in docs/shared/attributes.adoc, or things are b0rked!
-:RepoTemplateVersion: 1.0
-:RepoTemplateCodeName: multi-topic-level
-
-= {RepoTemplateCodeName}  version {RepoTemplateVersion} Template Git Repository
+= About this Repository
 
 This is a Git repository that was cloned from a template that uses the repository structure that Content Services is converging on as part of its FY17 goals.  This repo also contains template topics (concept, task, reference) to help non-technical writers write topic oriented content.
 
 == Terminology
 
-This template repository uses the terms below as defined:
+This repository uses the terms below as defined:
 
 title::
   A _title_ is a _deliverable_, i.e. a piece of content that is publishable using our toolchain. The toolchain refers to an AsciiDoc or DocBook deliverable publishable with it as a _title_, and this repo template adopts the same terminology.
@@ -22,16 +14,14 @@ distro::
 topic::
   A _topic_ is considered to be an atomic chunk of content contained within a single file. It may or may not be self-contained. In the future, it is likely to adhere to a content model such as concept, task or reference.
 
-== Properties of *{RepoTemplateCodeName} *
-
-This template repository structure has the following properties:
+== Properties of this Repository
 
 This repository structure has the following properties:
 
 * It is verified to work with the Tooling team's Docs2Drupal (and soon Docs 2.0) publication systems.
 //* It is verified that repositories in this format can be localized without issues.
 * It is based on the "library," or "multi-title" repo model. This repository structure can work with any number of titles, from one to whatever.
-* The repository structure serves to make it clear which content—usually toics—is/are shared between different distributions ("distros") of a title, shared between more that one title, or potentially local to a single distro of a title.
+* The repository structure serves to make it clear which content —usually toics— is shared between different distributions ("distros") of a title, shared between more that one title, or potentially local to a single distro of a title.
 * The need to use file-naming conventions to signify levels of sharing (a.k.a. "Hungarian notation") is reduced due to the directory structure making it more explicit.
 * It can be mirrored between Github and Gitlab by the Tooling team.
 * Content from other repositories can be pulled into this one using the Git subtree (or Git submodels if absolutely necessary).

@@ -1,0 +1,16 @@
+[[installation_prerequisites]]
+= Installation Prerequisites
+
+////
+What you need before you can install.  Permissions, other components that must
+be installed first, etc.
+////
+These installation instructions for {ProductName} assume that you already have
+the following in place:
+
+* CloudForms installed.
+
+In order to run the containers, the following system requirements must be met:
+
+* Operating System: RHEL 7.2 or higher or RHEL Atomic Host 7.2 or higher
+* Docker: Version 1.8 or higher

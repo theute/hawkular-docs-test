@@ -1,0 +1,13 @@
+[[installation_checklist]]
+= Installation Checklist
+
+Before you install {ProductName} you should have the following items:
+
+////
+QUESTION - Are there any specific permissions the installing user needs?
+Any special entitlement notes we need to mention?
+////
+* A non-root user to perform the server installation
+* The IP/Hostname and port of your Cassandra server
+* A user with permission to write to the Cassandra data store
+(used for ongoing operations)

@@ -1,0 +1,5 @@
+[[installing_the_middleware_management_server]]
+= Installing the Middleware Management Server
+
+
+IMPORTANT: Do not perform the installation as the ROOT user; create a non-root user.

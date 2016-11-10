@@ -1,31 +1,26 @@
 include::topics/document-attributes.adoc[]
 
-:product-build:
+:my-title-a:
 
-= {Management_BookName}
+= {MyTitleAUpstreamBookName}
 
-[[management_ch1]]
+[[book_a_chapter_1]]
 == Chapter 1
 
-// Include topic-4
+// Include topic-1
 include::topics/topic-1.adoc[leveloffset=+2]
 
-[[management_ch2]]
-== Chapter 2 {ProductShortName}
-
-// Include topic-5
+// Include topic-2
 include::topics/topic-2.adoc[leveloffset=+2]
 
-[[management_ch3]]
-== Chapter 3 {ProductShortName}
+[[book_a_chapter_2]]
+== Chapter 2 {ProductShortName}
 
-// Include shared topic-shared.adoc
+// Include topic-shared.adoc
 include::topics/topic-shared.adoc[leveloffset=+2]
 
 [appendix]
 = Reference Material
-
-// Add a topic here later
 
 // **********************************
 // * Appendix: Revision Information *
