@@ -16,8 +16,10 @@
 :AgentDownloadURL: URL
 //
 // Documentation publishing attributes used in the master-docinfo.xml file
+//Note that the DocInfoProductName generates the URL for the product page.
+//Changing the value changes the generated URL.
 //
-:DocInfoProductName: my-red-hat-product
+:DocInfoProductName: red-hat-middleware-management
 :DocInfoProductNumber: 1.0
 //
 // Book Names:

@@ -1,3 +1,5 @@
+include::document-attributes.adoc[]
+
 [[installation_prerequisites]]
 = Installation Prerequisites
 
@@ -5,12 +7,142 @@
 What you need before you can install.  Permissions, other components that must
 be installed first, etc.
 ////
-These installation instructions for {ProductName} assume that you already have
-the following in place:
+The installation instructions for the {ProductName} server assume that you already have the following in place:
 
-* CloudForms installed.
+* Red Hat Enterprise Linux 7.2 or higher or Red Hat Enterprise Atomic Host 7.2 or higher. For installation instructions, refer to the
+link:https://access.redhat.com/documentation/en/red-hat-enterprise-linux/[Red Hat Enterprise Linux installation guide.]
+* Red Hat CloudForms 4.2 installed.  For installation instructions,  refer to the
+link:https://access.redhat.com/documentation/en/red-hat-cloudforms/[Red Hat CloudForms installation guide]
+* Docker version 1.8 or higher.
+* PostgreSQL 9.4 or higher.
 
-In order to run the containers, the following system requirements must be met:
 
-* Operating System: RHEL 7.2 or higher or RHEL Atomic Host 7.2 or higher
-* Docker: Version 1.8 or higher
+[[docker_configuration]]
+== Installing and Configuring Docker
+
+. Register your Linux machine and add extra repositories for Docker support:
++
+[source, bash]
+----
+subscription-manager register --username=<rhnuser> --password=<pwd>
+subscription-manager list --available
+subscription-manager attach --pool=<pool_id>
+subscription-manager repos --enable=rhel-7-server-extras-rpms
+----
++
+. Install Docker and and the required dependencies:
++
+[source, bash]
+----
+yum install docker
+----
++
+. Start the docker service:
++
+[source, bash]
+----
+systemctl start docker.service
+----
++
+. Enable the Docker service:
++
+[source, bash]
+----
+systemctl enable docker.service
+----
++
+////
+Are these next steps going to the be mechanism for the released version?
+https://docs.engineering.redhat.com/display/JP/CloudForms+Middleware+-+Quickstart+Guide#CloudFormsMiddleware-QuickstartGuide-DockerConfig
+////
++
+. Edit your Docker configuration:
++
+Red Hat product docker images are available via the Brew Pulp docker registry (brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888).  The SSL certificate for the Brew Pulp registry needs to be marked as insecure.
++
+Edit `/etc/sysconfig/docker` on your system (RHEL or Fedora) and make sure to add the correct registry name, including the port number (8888), as an insecure registry:
++
+.Edit /etc/sysconfig/docker
+----
+INSECURE_REGISTRY='--insecure-registry brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888'
+----
++
+. Restart the Docker daemon.
++
+----
+sudo systemctl restart docker
+----
+
+
+== Installing and Configuring PostgreSQL Server 9.5
+Unless you already have a PostgreSQL 9.5 Server installed, you will need to install it.
+
+To install PostgreSQL on a RHEL machine:
+
+. Enable the software collection 2.2 repository to get the required version of PostgreSQL.
++
+[source, bash]
+----
+subscription-manager repos --enable rhel-server-rhscl-7-rpms
+----
++
+. Install the server with:
++
+[source, bash]
+----
+yum install rh-postgresql95
+scl enable rh-postgresql95 bash
+postgresql-setup --initdb
+service rh-postgresql95-postgresql start
+systemctl enable rh-postgresql95-postgresql.service
+----
++
+. Open the firewall for PostgreSQL remote connections:
++
+----
+sudo firewall-cmd --permanent --add-port=5432/tcp
+sudo firewall-cmd --add-port=5432/tcp
+----
++
+. Edit `/var/opt/rh/rh-postgresql95/lib/pgsql/data/postgresql.conf` to allow remote connections.  Add the following line:
++
+.postgresql.conf
+----
+listen_addresses = '*'
+----
++
+. Edit `/var/lib/pgsql/data/pg_hba.conf` to allow a user to connect to the `mwmanager` database.  Add the following line (Replace `my_db_username` with the value of your choice):
++
+.pg_hba.conf
+----
+host   mwmanager   my_db_username   0.0.0.0/0   md5
+----
++
+. Restart PostgreSQL
++
+[source, bash]
+----
+systemctl restart rh-postgresql95-postgresql.service
+----
++
+. Create the `mwmanager` database:
++
+----
+su postgres
+systemctl enable rh-postgresql95-postgresql.service
+psql
+----
++
+Replace `my_db_username` with the value chosen in pg_hba.conf and `my_db_password` with the value of your choice:
++
+----
+postgres=# CREATE USER my_db_username WITH PASSWORD 'my_db_password';
+postgres=# CREATE DATABASE mwmanager OWNER my_db_username;
+----
++
+. To verify, connect to the postgresql server remotely with:
++
+----
+psql -h my_db_host -U my_db_username -W -d mwmanager
+----
++

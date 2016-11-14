@@ -1,5 +1,41 @@
+include::document-attributes.adoc[]
+
 [[installing_the_middleware_management_server]]
 = Installing the Middleware Management Server
 
-
 IMPORTANT: Do not perform the installation as the ROOT user; create a non-root user.
+
+[[starting_cassandra]]
+== Starting the Cassandra Datastore
+The {ProductShortName} services require a running Cassandra instance.
+
+.Start Cassandra
+----
+docker run --name hawkular-cassandra -d -e CASSANDRA_START_RPC=true brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+----
+
+[[configuring_cassandra]]
+== Configuring the Cassandra Data Location
+By default the Cassandra container will create a volume under `/opt/apache-cassandra/data`.  This container directory will automatically be mapped to a unique local directory which can be viewed using `docker inspect <container-id>`.
+You can use the `-v` option to map the Cassandra data volume to a specific host directory.
+----
+docker run --name hawkular-cassandra -d -e CASSANDRA_START_RPC=true -v /tmp/mydatadir:/opt/apache-cassandra/data:Z
+brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+----
+NOTE: The `Z` option is necessary on RHEL/Fedora based systems to correctly set the SElinux permissions.
+
+
+[[cassandar_non-default_user]]
+== Running Cassanrda with a Non-default User
+You can run the Cassandra container with an arbitrary user id, however, that user must have permissions to write to the Cassandra data volume.
+----
+chown myuser:myuser /tmp/mydatadir
+docker run --name hawkular-cassandra -d -e CASSANDRA_START_RPC=true --user $(id -u myuser) -v /tmp/mydatadir:/opt/apache-cassandra/data:Z
+brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+----
+
+== Starting the Hawkular Services
+Start the hawkular-services and link it to the running Cassandra instance.
+----
+docker run -d --link=hawkular-cassandra -e CASSANDRA_NODES=hawkular-cassandra -e HAWKULAR_BACKEND=remote -p 8080:8080 -p 8443:8443 -p 9990:9990 brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/hawkular/hawkular-services:latest
+----

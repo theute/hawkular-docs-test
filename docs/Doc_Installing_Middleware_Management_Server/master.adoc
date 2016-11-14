@@ -6,6 +6,7 @@ include::/topics/document-attributes.adoc[]
 :ProductRelease: 1
 :ProductVersion: 1.0
 :product-build:
+:experimental:
 
 = {Server_Install_BookName}
 
@@ -36,10 +37,13 @@ include::topics/Installing_the_Middleware_Management_Agent.adoc[leveloffset=+2]
 
 include::/topics/Adding_a_Middleware_Management_Provider.adoc[leveloffset=+2]
 
-////
+
 [appendix]
-= Reference Material
-////
+== Middleware Management Service Options
+
+include::/topics/Hawkular_Services_Options.adoc[leveloffset=+2]
+
+
 // **********************************
 // * Appendix: Revision Information *
 // **********************************

@@ -1,12 +1,14 @@
-[[topic_1]]
+include::document-attributes.adoc[]
+[[downloading_server_software]]
 = Downloading the Middleware Management Software
 
-[[docker_configuration]]
-== Docker Configuration
-////
-Is this going to the be mechanism for the released version?
-https://docs.engineering.redhat.com/display/JP/CloudForms+Middleware+-+Quickstart+Guide#CloudFormsMiddleware-QuickstartGuide-DockerConfig
-////
-
 [[downloading_the_files]]
-== Downloading the Files
+== Downloading the Docker Files
+
+. Pull the docker images from the registry, for example:
+----
+docker pull brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss-eap-7-tech-preview/eap70
+----
+////
+We should have two docker images, correct?  Does this command pull both at the same time?
+////

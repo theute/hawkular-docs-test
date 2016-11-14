@@ -1,24 +1,26 @@
+include::document-attributes.adoc[]
+
 [[adding_a_middleware_provider]]
 = Adding a Middleware Provider to CloudForms
 Adding a New Middleware Provider
 
 . Log in to the CloudForms Management Engine.
-. Select menu:Middleware[Providers].
-. Click the btn:[Configuration] button and select Add a New Middleware Provider.
+. Select menu:[Middleware Providers].
+. Click the *Configuration* button and select *Add a New Middleware Provider*.
 . In the Add a New Middleware Provider screen, enter the following:
 
-* Name
-* Type = Hawkular
-* Hostname or IP address
+* *Name*
+* *Type* = Hawkular
+* *Hostname or IP address*
 +
 ////
 The Hostname must use a unique fully qualified domain name?
 ////
-* Port = 8080
-* Zone
-* User Name - The user must have privileged access, for example `root` or `administrator`.
-* Password
-. Before you add the provider, click the Validate button to confirm that the user
+* *Port* = 8080
+* *Zone*
+* *User Name* - The user must have privileged access, for example `root` or `administrator`.
+* *Password*
+. Before you add the provider, click the *Validate* button to confirm that the user
 has the proper credentials.
 +
 ====
@@ -29,4 +31,4 @@ If the provider is not validated, the Middleware Provider does not start all of
 the worker threads. Then, if the provider goes down, the Middleware Provider
 may flag it as disabled in the database and you will be unable to restart it.
 ====
-. Click Add.
+. Click *Add*.

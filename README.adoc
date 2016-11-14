@@ -1,8 +1,8 @@
 # Hawkular Documentation Repository
 
-This repository contains the documentation for Red Hat middleware management (aka Hawkular).
+This repository contains the documentation for Red Hat middleware management (also known by the upstream project name http://www.hawkular.org/[Hawkular]).
 
-NOTE: The default name used by the tooling for the  main file that defines the structure of the document or contains all the AsciiDoc content for the document is `master.adoc`.  This repository uses that naming convention.
+NOTE: The default name used by the CCS tooling for the  main file that defines the structure of the document or contains all the AsciiDoc content for the document is `master.adoc`.  This repository uses that naming convention.
 
 This repository is based on https://gitlab.cee.redhat.com/ccs-tools-documentation/up-down-repo-template[this template] and uses the following directory structure:
 
