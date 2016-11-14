@@ -12,6 +12,8 @@
 :ProductShortName: middleware management
 :ProductRelease: 1
 :ProductVersion: 1.0
+:ServerDownloadURL: URL
+:AgentDownloadURL: URL
 //
 // Documentation publishing attributes used in the master-docinfo.xml file
 //

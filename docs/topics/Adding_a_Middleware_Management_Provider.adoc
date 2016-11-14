@@ -10,10 +10,13 @@ Adding a New Middleware Provider
 * Name
 * Type = Hawkular
 * Hostname or IP address
++
+////
+The Hostname must use a unique fully qualified domain name?
+////
 * Port = 8080
 * Zone
-* User Name - The user must have privileged access, for example root or administrator.
-+
+* User Name - The user must have privileged access, for example `root` or `administrator`.
 * Password
 . Before you add the provider, click the Validate button to confirm that the user
 has the proper credentials.

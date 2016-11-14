@@ -1,21 +1,25 @@
 # Hawkular Documentation Repository
 
-This repository contains all of the documentation for Red Hat middleware management (aka Hawkular). It uses the following directory structure:
+This repository contains the documentation for Red Hat middleware management (aka Hawkular).
+
+NOTE: The default name used by the tooling for the  main file that defines the structure of the document or contains all the AsciiDoc content for the document is `master.adoc`.  This repository uses that naming convention.
+
+This repository is based on https://gitlab.cee.redhat.com/ccs-tools-documentation/up-down-repo-template[this template] and uses the following directory structure:
 
 ....
 ├── README.md (This file)
 ├── docs (This folder contains all the asciidoc topics and top level content spec)
-│   ├── My_Title_A
+│   ├── Title_A
 │   │   ├── master.adoc
 │   │   ├── master-docinfo.xml
 │   │   ├── buildGuide.sh (script to build this guide)
 │   │   ├── topics -> ../topics/ (symlink to docs/topics/)
-│   ├── My_Title_B
+│   ├── Title_B
 │   │   ├── master.adoc
 │   │   ├── master-docinfo.xml
 │   │   ├── buildGuide.sh (script to build this guide)
 │   │   ├── topics -> ../topics/ (symlink to docs/topics/)
-│   ├── My_Title_C
+│   ├── Title_C
 │   │   ├── master.adoc
 │   │   ├── master-docinfo.xml
 │   │   ├── buildGuide.sh (script to build this guide)
@@ -55,7 +59,7 @@ You can also build a single guide. Navigate to the folder of the book you want t
 4. In a terminal, navigate to each book folder and add the symlink to the `topics/` using this command:
 
         $ ln -s ../topics topics
-        
+
 5. Within each book folder, modify the `master-docinfo.xml` file to set the appropriate title, product, release, and other values for the build of the book to the portal.
 6. Within each book folder, modify the `master.adoc` file to set the appropriate title, document attributes, and include the appropriate `topics/` content.
 7. When you are ready, run the scripts to build the guides and review the output to make sure it looks correct.
