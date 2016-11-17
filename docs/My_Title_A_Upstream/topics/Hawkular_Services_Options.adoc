@@ -12,11 +12,11 @@ include::document-attributes.adoc[]
 
 |HAWKULAR_USERNAME
 |jdoe
-|
+|Username for the new user
 
 |HAWKULAR_PASSWORD
 |password
-|
+|Password for the new user
 
 |CASSANDRA_NODES
 |myCassandra
@@ -32,14 +32,14 @@ include::document-attributes.adoc[]
 
 |HAWKULAR_INVENTORY_JDBC_URL
 |-
-|For example, `jdbc:postgresql://hawkular-prod-01.hosts.mwqe.eng.bos.redhat.com:5432/hawkular`
+|For example, `jdbc:postgresql://my_db_host:5432/mwprovider`
 
 |HAWKULAR_INVENTORY_JDBC_USERNAME
 |-
-|
+|PostgreSQL username
 
 |HAWKULAR_INVENTORY_JDBC_PASSWORD
 |-
-|
+|PostgreSQL password
 
 |===

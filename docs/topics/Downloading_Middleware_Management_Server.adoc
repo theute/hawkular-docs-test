@@ -1,14 +1,21 @@
 include::document-attributes.adoc[]
 [[downloading_server_software]]
 = Downloading the Middleware Management Software
+////
+https://access.redhat.com/search/#/container-images  ???
+////
 
 [[downloading_the_files]]
-== Downloading the Docker Files
+== Downloading the Docker Containers
 
-. Pull the docker images from the registry, for example:
+. Pull the Docker container image from the registry, for example:
++
 ----
 docker pull brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss-eap-7-tech-preview/eap70
 ----
-////
-We should have two docker images, correct?  Does this command pull both at the same time?
-////
++
+. Pull the Cassandra container image from the registry, for example:
++
+----
+docker pull brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+----

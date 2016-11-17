@@ -17,30 +17,57 @@ usage(){
   cat <<EOM
 USAGE: $0 [OPTION]... <guide>
 
-DESCRIPTION: Build all of the guides (default) or a single guide.
+DESCRIPTION: Build all of the guides (default), a single guide, and (optionally)
+produce pot/po files for translation.
 
-Run this script from either the root of your cloned repository or from the 'scripts' directory.  Example:
-  cd MY_DOCUMENTATION_REPOSITORY/scripts
+Run this script from either the root of your cloned repo or from the 'scripts'
+directory.  Example:
+  cd scripts
   $0
 
 OPTIONS:
   -h       Print help.
+  -t       Produce the pot/po files for the designtated guide(s)
 
 EXAMPLES:
   Build all guides:
    $0
 
+  Build all guides and produce pot/po:
+   $0 -t
+
   Build a specific guide(s) from $DOCS_SRC:
-    $0 My_Title_A
-    $0 My_Title_A
-    $0 My_Title_C
+    $0 Doc_Installing_Middleware_Management_Agent
+    $0 Doc-Middleware_Management_Agent_Release_Notes
+
+  Build a specific guide from $DOCS_SRC with pot/po:
+    $0 -t Doc_Installing_Middleware_Management_Agent
+    $0 -t Doc-Middleware_Management_Agent_Release_Notes
+
 EOM
+# Now list the valid book values
+listvalidbooks
+}
+
+listvalidbooks(){
+  echo ""
+  echo "  Valid book argument values are:"
+  cd $DOCS_SRC
+  subdirs=`find . -maxdepth 1 -type d ! -iname ".*" ! -iname "topics"  ! -iname "resources" | sort`
+  for subdir in $subdirs
+  do
+    echo "   ${subdir##*/}"
+  done
+  echo ""
+  # Return to where we started as a courtesy.
+  cd $CURRENT_DIR
 }
 
 OPTIND=1
-while getopts "h" c
+while getopts "ht" c
  do
      case "$c" in
+       t)         L10N="-t $LANG_CODE";;
        h)         usage
                   exit 1;;
        \?)        echo "Unknown option: -$OPTARG." >&2
@@ -65,11 +92,12 @@ fi
 echo $PWD
 for subdir in $subdirs
 do
-  echo ""
   echo "Building $DOCS_SRC/${subdir##*/}"
   # Navigate to the dirctory and build it
   if ! [ -e $DOCS_SRC/${subdir##*/} ]; then
     BUILD_MESSAGE="$BUILD_MESSAGE\nERROR: $DOCS_SRC/${subdir##*/} does not exist."
+    # This is a book argument error so we should list the valid arguments.
+    LIST_BOOKS="true"
     continue
   fi
   cd $DOCS_SRC/${subdir##*/}
@@ -92,6 +120,11 @@ if [ "$BUILD_MESSAGE" == "$BUILD_RESULTS" ]; then
   echo "Build was successful!"
 else
   echo -e "${RED}$BUILD_MESSAGE${NO_COLOR}"
-  echo -e "${RED}Please fix all issues before requesting a merge!${NO_COLOR}"
+  if [ "$LIST_BOOKS" ]; then
+    listvalidbooks
+  else
+    # This is a build error.
+    echo -e "${RED}Please fix all issues before requesting a merge!${NO_COLOR}"
+  fi
 fi
 exit;

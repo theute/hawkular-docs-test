@@ -1,13 +1,13 @@
 include::/topics/document-attributes.adoc[]
 
-:Server_RN_BookName: Red Hat Middleware Management Server Release Notes
+:Server_RN_BookName: Red Hat Middleware Management Release Notes
 :product-build:
 
 = {Server_RN_BookName}
 
 [[RN_intro]]
 == Introduction
-NOTE: This release of {ProductName} is a technical preview. Technology Previews provide early access to upcoming product innovations, letting you to test new features and provide feedback during the development process. Technology Preview releases are not intended for production use. For more information see https://access.redhat.com/support/offerings/production/scope_moredetail[the Red Hat customer portal.]
+NOTE: This release of {ProductName} is a technical preview. Technology Previews provide early access to upcoming product innovations, letting you to test new features and provide feedback during the development process. Technology Preview releases are _not_ intended for production use. For more information see https://access.redhat.com/support/offerings/production/scope_moredetail[the Red Hat customer portal.]
 
 
 [[RN_new_features]]

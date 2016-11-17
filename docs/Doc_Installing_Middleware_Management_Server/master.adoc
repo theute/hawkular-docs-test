@@ -11,20 +11,22 @@ include::/topics/document-attributes.adoc[]
 = {Server_Install_BookName}
 
 [[install_chapter_1]]
-== Chapter 1 - Prerequisites
-NOTE: This release of {ProductName} is a technical preview. Technology Previews provide early access to upcoming product innovations, letting you to test new features and provide feedback during the development process. Technology Preview releases are not intended for production use.
+== Prerequisites
+NOTE: This release of {ProductName} is a technical preview. Technology Previews provide early access to upcoming product innovations, letting you to test new features and provide feedback during the development process. Technology Preview releases are _not_ intended for production use.
  For more information see https://access.redhat.com/support/offerings/production/scope_moredetail[the Red Hat customer portal.]
 
 This document provides instructions for installing {ProductName}.  The installation media is two container files available from {ServerDownloadURL}.
 
 include::topics/Architecture_Overview.adoc[leveloffset=+2]
 
-include::topics/Installation_Prerequisites_Server.adoc[leveloffset=+2]
-
 include::topics/Installation_Checklist_Server.adoc[leveloffset=+2]
 
+include::topics/Installation_Prerequisites_Server.adoc[leveloffset=+2]
+
+
+
 [[install_chapter_2]]
-== Chapter 2 - Installation
+== Installation
 
 include::topics/Downloading_Middleware_Management_Server.adoc[leveloffset=+2]
 
@@ -37,12 +39,7 @@ include::topics/Installing_the_Middleware_Management_Agent.adoc[leveloffset=+2]
 
 include::/topics/Adding_a_Middleware_Management_Provider.adoc[leveloffset=+2]
 
-
-[appendix]
-== Middleware Management Service Options
-
-include::/topics/Hawkular_Services_Options.adoc[leveloffset=+2]
-
+include::/topics/Installation_Cassandra_Cluster.adoc[leveloffset=+2]
 
 // **********************************
 // * Appendix: Revision Information *

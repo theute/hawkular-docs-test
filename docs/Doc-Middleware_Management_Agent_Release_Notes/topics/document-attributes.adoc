@@ -12,8 +12,8 @@
 :ProductShortName: middleware management
 :ProductRelease: 1
 :ProductVersion: 1.0
-:ServerDownloadURL: URL
-:AgentDownloadURL: URL
+:ServerDownloadURL: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888
+:AgentDownloadURL: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888
 //
 // Documentation publishing attributes used in the master-docinfo.xml file
 //Note that the DocInfoProductName generates the URL for the product page.

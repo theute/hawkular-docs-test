@@ -1,2 +1,50 @@
+include::document-attributes.adoc[]
 [[installing_the_middleware_management_agent]]
 = Installing the Middleware Management Agent
+
+////
+Need to verify that I'm understand the term "instrumenting" correctly.
+////
+To instrument an Enterprise Application Platform (EAP) server so that you can can monitor and manage it from CloudForms, you must install a {ProductShortName} agent on the server.
+
+== Download the Agent Installer
+The EAP agent installer is available from the middleware manager console.
+
+. In a browser, go to http://my_mwmanager_host:8080/.
+. Click the "EAP Agent Installer" link.
+. In the Authentication Required pop-up, enter the credentials for the middleware manager uesr.
++
+The middleware management server downloads a file named  `hawkular-wildfly-agent-installer.jar` to your local machine.
+
+== Install the agent in Enterprise Application Platform
+After you have downloaded the `.jar` file, use one of the following commands to copy the file to the EAP server and install the agent.  Select the command that matches the mode of your EAP server.
+
+.Standalone mode
+
+[source, bash]
+----
+java -jar ~Downloads/hawkular-wildfly-agent-installer.jar
+   --target-location=/opt/jboss-eap-7.0/
+   --server-url=http://192.168.1.123:8080
+   --username=my_mwmanager_username
+   --password=my_mwmanager_password
+----
+
+.Domain mode
+[source, bash]
+----
+java -jar ~Downloads/hawkular-wildfly-agent-installer.jar
+   --target-location=/opt/jboss-eap-7.0/
+   --target-config=/opt/jboss-eap-7.0/domain/configuration/host.xml
+   --server-url=http://192.168.1.123:8080
+   --username=my_mwmanager_username
+   --password=my_mwmanager_password
+----
+
+== Verify the Agent Installation in CloudForms
+. Start or restart the newly instrumented EAP server.
+. In CloudForms, go to [Middleware > Providers]
+and select the {ProductShortname} provider that you previously configured.
+. On the Summary screen, in the *Relationships* table, click the Middleware Servers icon to view the instrumented servers.
+
+NOTE: The new server may take a few moments to appear.

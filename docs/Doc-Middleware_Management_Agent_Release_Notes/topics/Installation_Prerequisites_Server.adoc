@@ -13,6 +13,11 @@ The installation instructions for the {ProductName} server assume that you alrea
 link:https://access.redhat.com/documentation/en/red-hat-enterprise-linux/[Red Hat Enterprise Linux installation guide.]
 * Red Hat CloudForms 4.2 installed.  For installation instructions,  refer to the
 link:https://access.redhat.com/documentation/en/red-hat-cloudforms/[Red Hat CloudForms installation guide]
++
+////
+Check Docker version.  Docker Engine? Is at 1.13.
+////
++
 * Docker version 1.8 or higher.
 * PostgreSQL 9.4 or higher.
 
@@ -51,11 +56,6 @@ systemctl start docker.service
 systemctl enable docker.service
 ----
 +
-////
-Are these next steps going to the be mechanism for the released version?
-https://docs.engineering.redhat.com/display/JP/CloudForms+Middleware+-+Quickstart+Guide#CloudFormsMiddleware-QuickstartGuide-DockerConfig
-////
-+
 . Edit your Docker configuration:
 +
 Red Hat product docker images are available via the Brew Pulp docker registry (brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888).  The SSL certificate for the Brew Pulp registry needs to be marked as insecure.
@@ -75,6 +75,9 @@ sudo systemctl restart docker
 
 
 == Installing and Configuring PostgreSQL Server 9.5
+////
+Would like to include a short overview of why we need PostgreSQL, that is, what we're using it for vs. Cassandra.
+////
 Unless you already have a PostgreSQL 9.5 Server installed, you will need to install it.
 
 To install PostgreSQL on a RHEL machine:
@@ -133,16 +136,15 @@ systemctl enable rh-postgresql95-postgresql.service
 psql
 ----
 +
-Replace `my_db_username` with the value chosen in pg_hba.conf and `my_db_password` with the value of your choice:
+Replace `my_db_username` with the value chosen in `pg_hba.conf` and `my_db_password` with the value of your choice:
 +
 ----
 postgres=# CREATE USER my_db_username WITH PASSWORD 'my_db_password';
 postgres=# CREATE DATABASE mwmanager OWNER my_db_username;
 ----
 +
-. To verify, connect to the postgresql server remotely with:
+. To verify, connect to the PostgreSQL server remotely with:
 +
 ----
 psql -h my_db_host -U my_db_username -W -d mwmanager
 ----
-+
