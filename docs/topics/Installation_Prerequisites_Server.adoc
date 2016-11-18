@@ -25,7 +25,7 @@ Check Docker version.  Docker Engine? Is at 1.13.
 [[docker_configuration]]
 == Installing and Configuring Docker
 
-. Register your Linux machine and add extra repositories for Docker support:
+. Register your Linux machine and add extra repositories for Docker support.
 +
 [source, bash]
 ----
@@ -35,28 +35,28 @@ subscription-manager attach --pool=<pool_id>
 subscription-manager repos --enable=rhel-7-server-extras-rpms
 ----
 +
-. Install Docker and and the required dependencies:
+. Install Docker and the required dependencies.
 +
 [source, bash]
 ----
 yum install docker
 ----
 +
-. Start the docker service:
+. Start the docker service.
 +
 [source, bash]
 ----
 systemctl start docker.service
 ----
 +
-. Enable the Docker service:
+. Enable the Docker service.
 +
 [source, bash]
 ----
 systemctl enable docker.service
 ----
 +
-. Edit your Docker configuration:
+. Edit your Docker configuration.
 +
 Red Hat product docker images are available via the Brew Pulp docker registry (brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888).  The SSL certificate for the Brew Pulp registry needs to be marked as insecure.
 +
