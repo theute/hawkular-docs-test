@@ -1,3 +1,5 @@
+include::document-attributes.adoc[]
+
 [[download_agent]]
 = Downloading the Middleware Management Agent
 

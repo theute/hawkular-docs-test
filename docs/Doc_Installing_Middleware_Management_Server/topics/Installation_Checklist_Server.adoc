@@ -2,44 +2,22 @@ include::document-attributes.adoc[]
 [[installation_checklist]]
 = Installation Overview
 
-
-
 ////
 QUESTION - Are there any specific permissions the installing user needs?
 Any special entitlement notes we need to mention?
 ////
-== Installation Steps
 Before you begin install installing {ProductName}, you should have the following information:
 
 * A non-root user to perform the {ProductShortName} server installation
-* The IP/Hostname and port of the Cassandra server
 * A user with permission to write to the Cassandra data store
 (used for ongoing operations)
 
-
 The installation workflow is as follows:
 
-- [ ] Install and configure Docker
-  ** Register your machine, add the Red Hat repositories
-  ** Install Docker
-  ** Start Docker service
-  ** Enable Docker service
-  ** Edit Docker configuration
-  ** Restart Docker
-- [ ] Install and configure PostgreSQL
-  ** Enable the repository
-  ** Install the PostgreSQL server
-  ** Open the firewall for remote connections
-  ** Edit the configuration files
-  ** Restart PostgreSQL
-  ** Create the database
-- [ ] Installing {ProductName} server
-  ** Downloading the Docker Containers
-  ** Start Cassandra
-  ** Configure Cassandra
-  ** Start the services
-- [ ] Installing {ProductName} agent
-  ** Download the agent
-  ** Install the agent on the EAP server
-- [ ] Adding a middleware provider to CloudForms
-- [ ] Adding nodes to Cassandra
+. Install and configure Docker
+. Install and configure PostgreSQL
+. Install and configure Cassandra datastore
+. Install the {ProductName} server
+. Add the middleware provider to CloudForms
+. Install the {ProductName} agent on EAP servers
+. (Optional) Add nodes to Cassandra

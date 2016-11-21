@@ -1,3 +1,5 @@
+include::document-attributes.adoc[]
+
 [[installation_prerequisites]]
 = Installation Prerequisites
 

@@ -12,7 +12,7 @@ The EAP agent installer is available from the middleware manager console.
 
 . In a browser, go to http://my_mwmanager_host:8080/.
 . Click the "EAP Agent Installer" link.
-. In the Authentication Required pop-up, enter the credentials for the middleware manager uesr.
+. In the Authentication Required pop-up, enter the credentials for the middleware manager user.
 +
 The middleware management server downloads a file named  `hawkular-wildfly-agent-installer.jar` to your local machine.
 

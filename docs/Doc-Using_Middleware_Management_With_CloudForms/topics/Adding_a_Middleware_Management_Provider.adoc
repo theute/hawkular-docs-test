@@ -5,11 +5,11 @@ include::document-attributes.adoc[]
 Adding a New Middleware Provider
 
 . Log in to the CloudForms Management Engine as a user who has permissions to add providers. The default user is `admin`, password `smartvm`.
-. Select menu:[Middleware Providers].
+. Select menu:Middleware[Providers].
 . Click the *Configuration* button and select *Add a New Middleware Provider* from the menu.
 . In the Add a New Middleware Provider screen, enter the following:
 
-* *Name* - Enter a user friendly name for the provider.
+* *Name* - Enter a name for the provider, for example, Middleware Manager.
 * *Type* = Hawkular
 * *Zone*
 +
@@ -21,7 +21,7 @@ Endpoints
 The Hostname must use a unique fully qualified domain name?
 ////
 * *API Port* = Port of the middleware manager. The default is 8080.
-* *User Name* - The user name used to start the middleware manager.  This user must have privileged access, for example `root` or `administrator`.
+* *User Name* - The user name used to start the middleware manager.  
 * *Password*
 * *Confirm Password*
 +
@@ -30,8 +30,8 @@ The Hostname must use a unique fully qualified domain name?
 ====
 IMPORTANT: Click the Validate button.
 
-There is an internal flag that indicates if the provider is validated or not. If the provider is not validated, the Middleware Provider does not start all of the worker threads. Then, if the provider goes down, the Middleware Provider may flag it as disabled in the database and you will be unable to restart it.
+There is an internal flag that indicates if the provider is validated or not. If you do not validate the provider, the Middleware Provider does not start all of the worker threads. Then, if the provider goes down, CloudForms may flag it as disabled in the database and you will be unable to restart it.
 ====
 . Click *Add*.
 
-image::/images/MW_Provider_Summary.png[]
+image::/images/MW_Provider_Summary.png[Provider Summary Screen]

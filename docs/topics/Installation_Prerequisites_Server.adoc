@@ -60,7 +60,7 @@ systemctl enable docker.service
 +
 Red Hat product docker images are available via the Brew Pulp docker registry (brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888).  The SSL certificate for the Brew Pulp registry needs to be marked as insecure.
 +
-Edit `/etc/sysconfig/docker` on your system (RHEL or Fedora) and make sure to add the correct registry name, including the port number (8888), as an insecure registry:
+Edit `/etc/sysconfig/docker` on your system (RHEL or Fedora) and make sure to add the correct registry name, including the port number (8888), as an insecure registry.
 +
 .Edit /etc/sysconfig/docker
 ----
@@ -78,9 +78,7 @@ sudo systemctl restart docker
 ////
 Would like to include a short overview of why we need PostgreSQL, that is, what we're using it for vs. Cassandra.
 ////
-Unless you already have a PostgreSQL 9.5 Server installed, you will need to install it.
-
-To install PostgreSQL on a RHEL machine:
+Unless you already have a PostgreSQL 9.5 Server installed, you will need to install it.  You can install PostgreSQL on RHEL systems using `yum`.
 
 . Enable the software collection 2.2 repository to get the required version of PostgreSQL.
 +
@@ -89,7 +87,7 @@ To install PostgreSQL on a RHEL machine:
 subscription-manager repos --enable rhel-server-rhscl-7-rpms
 ----
 +
-. Install the server with:
+. Install the server.
 +
 [source, bash]
 ----
@@ -100,7 +98,7 @@ service rh-postgresql95-postgresql start
 systemctl enable rh-postgresql95-postgresql.service
 ----
 +
-. Open the firewall for PostgreSQL remote connections:
+. Open the firewall for PostgreSQL remote connections.
 +
 ----
 sudo firewall-cmd --permanent --add-port=5432/tcp
@@ -121,14 +119,14 @@ listen_addresses = '*'
 host   mwmanager   my_db_username   0.0.0.0/0   md5
 ----
 +
-. Restart PostgreSQL
+. Restart PostgreSQL.
 +
 [source, bash]
 ----
 systemctl restart rh-postgresql95-postgresql.service
 ----
 +
-. Create the `mwmanager` database:
+. Create the `mwmanager` database.
 +
 ----
 su postgres
@@ -136,14 +134,14 @@ systemctl enable rh-postgresql95-postgresql.service
 psql
 ----
 +
-Replace `my_db_username` with the value chosen in `pg_hba.conf` and `my_db_password` with the value of your choice:
+Replace `my_db_username` with the value chosen in `pg_hba.conf` and `my_db_password` with the value of your choice.
 +
 ----
 postgres=# CREATE USER my_db_username WITH PASSWORD 'my_db_password';
 postgres=# CREATE DATABASE mwmanager OWNER my_db_username;
 ----
 +
-. To verify, connect to the PostgreSQL server remotely with:
+. To verify, connect to the PostgreSQL server remotely.
 +
 ----
 psql -h my_db_host -U my_db_username -W -d mwmanager

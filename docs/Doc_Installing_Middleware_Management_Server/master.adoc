@@ -1,11 +1,5 @@
 include::/topics/document-attributes.adoc[]
 
-:Server_Install_BookName: Installing Red Hat Middleware Management with CloudForms
-:ProductName: Red Hat Middleware Management
-:ProductShortName: middleware management
-:ProductRelease: 1
-:ProductVersion: 1.0
-:product-build:
 :experimental:
 
 = {Server_Install_BookName}
@@ -23,19 +17,19 @@ include::topics/Installation_Checklist_Server.adoc[leveloffset=+2]
 
 include::topics/Installation_Prerequisites_Server.adoc[leveloffset=+2]
 
-
-
 [[install_chapter_2]]
-== Installation
+== Installing the Middleware Management Server
 
-include::topics/Downloading_Middleware_Management_Server.adoc[leveloffset=+2]
+The {ProductName} installation consists of two container images.
+
+IMPORTANT: Do not perform the installation as the ROOT user; create a non-root user.
 
 include::topics/Installing_the_Middleware_Management_Server.adoc[leveloffset=+2]
 
 include::topics/Installing_the_Middleware_Management_Agent.adoc[leveloffset=+2]
 
 [[install_chapter_3]]
-== Chapter 3 - Initial Configuration
+== Initial Configuration
 
 include::/topics/Adding_a_Middleware_Management_Provider.adoc[leveloffset=+2]
 
