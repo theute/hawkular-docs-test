@@ -1,4 +1,4 @@
-include::/topics/document-attributes.adoc[]
+include::topics/document-attributes.adoc[]
 
 :experimental:
 
@@ -31,9 +31,9 @@ include::topics/Installing_the_Middleware_Management_Agent.adoc[leveloffset=+2]
 [[install_chapter_3]]
 == Initial Configuration
 
-include::/topics/Adding_a_Middleware_Management_Provider.adoc[leveloffset=+2]
+include::topics/Adding_a_Middleware_Management_Provider.adoc[leveloffset=+2]
 
-include::/topics/Installation_Cassandra_Cluster.adoc[leveloffset=+2]
+include::topics/Installation_Cassandra_Cluster.adoc[leveloffset=+2]
 
 // **********************************
 // * Appendix: Revision Information *

@@ -22,7 +22,7 @@ produce pot/po files for translation.
 
 Run this script from either the root of your cloned repo or from the 'scripts'
 directory.  Example:
-  cd scripts
+  cd eap-documentation/scripts
   $0
 
 OPTIONS:
@@ -37,13 +37,14 @@ EXAMPLES:
    $0 -t
 
   Build a specific guide(s) from $DOCS_SRC:
-    $0 Doc_Installing_Middleware_Management_Agent
-    $0 Doc-Middleware_Management_Agent_Release_Notes
+    $0 cli-guide
+    $0 config-guide
+    $0 config-guide deploying-on-amazon-ec2
 
   Build a specific guide from $DOCS_SRC with pot/po:
-    $0 -t Doc_Installing_Middleware_Management_Agent
-    $0 -t Doc-Middleware_Management_Agent_Release_Notes
-
+   $0 -t cli-guide
+   $0 -t config-guide
+   $0 -t config-guide deploying-on-amazon-ec2
 EOM
 # Now list the valid book values
 listvalidbooks
@@ -53,7 +54,7 @@ listvalidbooks(){
   echo ""
   echo "  Valid book argument values are:"
   cd $DOCS_SRC
-  subdirs=`find . -maxdepth 1 -type d ! -iname ".*" ! -iname "topics"  ! -iname "resources" | sort`
+  subdirs=`find . -maxdepth 1 -type d ! -iname ".*" ! -iname "topics" | sort`
   for subdir in $subdirs
   do
     echo "   ${subdir##*/}"
