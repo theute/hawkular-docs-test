@@ -34,4 +34,4 @@ There is an internal flag that indicates if the provider is validated or not. If
 ====
 . Click *Add*.
 
-image::/images/MW_Provider_Summary.png[Provider Summary Screen]
+image::images/MW_Provider_Summary.png[Provider Summary Screen]

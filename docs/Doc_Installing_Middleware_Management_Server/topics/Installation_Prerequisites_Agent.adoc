@@ -1,9 +1,0 @@
-include::document-attributes.adoc[]
-
-[[installation_prerequisites]]
-= Installation Prerequisites
-
-////
-What you need before you can install.  Permissions, other components that must
-be installed first, etc.
-////

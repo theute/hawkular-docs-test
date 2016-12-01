@@ -1,7 +1,7 @@
 include::document-attributes.adoc[]
 
 [[starting_cassandra]]
-== Install and Configure Cassandra
+= Install and Configure Cassandra
 
 ////
 Would like to be able to provide more context as to why we need the Cassandra instance and what role it plays.
