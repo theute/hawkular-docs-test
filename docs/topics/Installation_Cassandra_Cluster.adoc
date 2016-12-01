@@ -1,4 +1,3 @@
-include::document-attributes.adoc[]
 [[cassandra_clusters]]
 = Cassandra Cluster Setup
 

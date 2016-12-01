@@ -1,5 +1,3 @@
-include::document-attributes.adoc[]
-
 [[installation_checklist]]
 = Installation Checklist
 

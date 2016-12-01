@@ -1,5 +1,3 @@
-include::document-attributes.adoc[]
-
 [[adding_a_middleware_provider]]
 = Adding a Middleware Provider to CloudForms
 Adding a New Middleware Provider
@@ -21,7 +19,7 @@ Endpoints
 The Hostname must use a unique fully qualified domain name?
 ////
 * *API Port* = Port of the middleware manager. The default is 8080.
-* *User Name* - The user name used to start the middleware manager.  
+* *User Name* - The user name used to start the middleware manager.
 * *Password*
 * *Confirm Password*
 +
@@ -34,4 +32,4 @@ There is an internal flag that indicates if the provider is validated or not. If
 ====
 . Click *Add*.
 
-image::images/MW_Provider_Summary.png[Provider Summary Screen]
+image::MW_Provider_Summary.png[Provider Summary Screen]

@@ -1,4 +1,3 @@
-include::document-attributes.adoc[]
 [[installing_the_middleware_management_agent]]
 = Installing the Middleware Management Agent
 

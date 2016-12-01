@@ -1,5 +1,3 @@
-include::document-attributes.adoc[]
-
 [[starting_cassandra]]
 = Install and Configure Cassandra
 

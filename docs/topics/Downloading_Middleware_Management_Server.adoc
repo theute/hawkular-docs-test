@@ -1,4 +1,3 @@
-include::document-attributes.adoc[]
 [[downloading_server_software]]
 = Downloading the Middleware Management Software
 ////
