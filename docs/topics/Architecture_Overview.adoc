@@ -1,5 +1,3 @@
-include::document-attributes.adoc[]
-
 [[architecture_overview]]
 = Architecture Overview
 
