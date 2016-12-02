@@ -1,4 +1,4 @@
-include::/topics/document-attributes.adoc[]
+include::topics/document-attributes.adoc[]
 
 = {Agent_Install_BookName}
 

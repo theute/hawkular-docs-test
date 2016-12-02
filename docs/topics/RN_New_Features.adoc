@@ -1,0 +1,2 @@
+[[new_features]]
+= New Features and Enhancements

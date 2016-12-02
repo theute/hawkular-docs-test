@@ -1,7 +1,5 @@
 include::topics/document-attributes.adoc[]
 
-:product-build:
-
 = {Management_BookName}
 
 [[management_ch1]]
