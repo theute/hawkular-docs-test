@@ -7,8 +7,6 @@ include::topics/document-attributes.adoc[]
 
 NOTE: This release of {ProductName} is a technical preview. Technology Previews provide early access to upcoming product innovations, letting you to test new features and provide feedback during the development process. Technology Preview releases are _not_ intended for production use. For more information see https://access.redhat.com/support/offerings/production/scope_moredetail[the Red Hat Customer Portal.]
 
-include::topics/Overview_Middleware_Management.adoc[leveloffset=+2]
-
 [[RN_new_features]]
 == New Features
 

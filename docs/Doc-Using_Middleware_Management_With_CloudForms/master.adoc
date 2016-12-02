@@ -5,20 +5,11 @@ include::topics/document-attributes.adoc[]
 [[management_ch1]]
 == Chapter 1
 
-// Include topic-4
+////
+Include topic-4
 include::topics/topic-1.adoc[leveloffset=+2]
+////
 
-[[management_ch2]]
-== Chapter 2 {ProductShortName}
-
-// Include topic-5
-include::topics/topic-2.adoc[leveloffset=+2]
-
-[[management_ch3]]
-== Chapter 3 {ProductShortName}
-
-// Include shared topic-shared.adoc
-include::topics/topic-shared.adoc[leveloffset=+2]
 
 [appendix]
 = Reference Material
