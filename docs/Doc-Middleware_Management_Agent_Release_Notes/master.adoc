@@ -1,6 +1,4 @@
-include::/topics/document-attributes.adoc[]
-
-:product-build:
+include::topics/document-attributes.adoc[]
 
 = {Agent_RN_BookName}
 

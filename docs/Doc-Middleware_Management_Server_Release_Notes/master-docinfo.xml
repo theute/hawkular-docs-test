@@ -1,9 +1,9 @@
-<title>{Server_Install_BookName}</title>
+<title>{Server_RN_BookName}</title>
 <productname>{ProductName}</productname>
 <productnumber>{DocInfoProductNumber}</productnumber>
 <subtitle>For Use with {ProductName} {ProductRelease}</subtitle>
 <abstract>
-    <para>This documentation describes the server installation for {ProductName} {ProductRelease}.</para>
+    <para>The {ProductName} {FullProductRelease} Release Notes list and provide descriptions for a series of bugzilla bugs. The bugs highlight issues that are known problems and resolved issues for the release. </para>
 </abstract>
 <authorgroup>
     <orgname>Red Hat Customer Content Services </orgname>

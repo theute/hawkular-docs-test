@@ -1,0 +1,9 @@
+[[fixed_features]]
+= Fixed Issues
+////
+Please provide the following info for each issue if possible:
+* Consequence - What did the customer experience? What was the symptom? What user action or situation would make this problem manifest?
+* Cause - Why did this happen?
+* Fix - What did we change? 
+* Result - How has the behavior changed as a result?  Result should never be “It is fixed” or “The issue is resolved” or “The error no longer presents”.
+////

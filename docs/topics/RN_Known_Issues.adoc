@@ -1,0 +1,27 @@
+[[known_issues]]
+= Known Issues
+////
+Consequence - What did the customer experience? What was the symptom? What user action or situation would make this problem manifest?
+Cause - Why did this happen?
+Workaround (If there is one)- What can you do to avoid or negate the effects of this issue in the meantime?  Sometimes if there is no workaround it is worthwhile telling readers to contact support for advice.
+////
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1383414[BZ-1383414]
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1383426[BZ-1383426]
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1383611[BZ-1383611]
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1383637[BZ-1383637]
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1384669[BZ-1384669]
+When starting the middleware management services, receive the following container log ERROR:
+----
+ERROR [org.jboss.as.ejb3.invocation] (Thread-10 (ActiveMQ-client-global-threads-515103874)) WFLYEJB0034: EJB Invocation failed on component HawkularTopicListener for method public void org.hawkular.bus.common.consumer.BasicMessageListener.onMessage(javax.jms.Message): javax.ejb.EJBException: java.lang.NullPointerException
+----
+
+The root cause of this issue is https://issues.jboss.org/browse/HAWKULAR-1127[HAWKULAR-1127], which has been resolved.  The fix is due in the next release of Hawkular Services.
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1388040[BZ-1388040]
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1394040[BZ-1394040]
