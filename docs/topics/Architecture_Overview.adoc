@@ -1,24 +1,8 @@
 [[architecture_overview]]
 = Architecture Overview
 
-Within the {ProductName} solution, there are several distinct components:
+Installing the {ProductName} solution involves installing the following components:
 
-* *Middleware management server*: A JBoss Enterprise Application Platform (EAP) 7
-based application that collects metrics and events from middleware servers and
-sends that data to the CloudForms console.
-The middleware management server also executes operations on middleware servers.
-* *Cassandra datastore*: Storage for metrics data based on the Apache Cassandra
-database management system.
-* *Middleware management Ruby Gem*: Ruby client to middleware management server.
-* *Middleware management provider*: The Ruby on Rails component shipped in CloudForms that
-communicates with the middleware management server through the middleware management
- Ruby Gem and provides a user interface for the middleware capabilities.
+* *Middleware management server*: A JBoss Enterprise Application Platform (EAP) 7 based application that collects metrics and events from middleware servers and sends that data to the CloudForms console. The middleware management server also executes operations on middleware servers.  This is delivered as a Docker container image.
+* *Cassandra datastore*: Storage for metrics data based on the Apache Cassandra database management system.  this is delivered as a Docker container image.
 * *Middleware management agent*: Agents that reside on the host where the JBoss middleware is running and push data to the middleware management server.
-** Android
-** Go
-** Java
-** Python
-** Ruby
-////
-Are we shipping the various agents that exist for Hawkular?  I don't have anything in my notes, but I seem to recall that we're only shipping a single agent for the tech preview?
-////

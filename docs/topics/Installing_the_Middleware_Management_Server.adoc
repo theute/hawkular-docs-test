@@ -52,7 +52,7 @@ docker run --name hawkular-cassandra -d -e CASSANDRA_START_RPC=true --user $(id 
 brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
 ----
 
-== Starting the Hawkular Services
+= Starting the Hawkular Services
 ////
 Need to verify that this is still called "Hawkular"
 ////
@@ -124,6 +124,6 @@ docker run --name mwmanager  -d \
 
 |===
 +
-. Verify the {ProductShortname} installation by launching a brower and navigating to http://my_mwmanager_host:8080/. After a minute or two, you should see the the middleware manager console.
+. Verify the {ProductShortname} installation by launching a brower and navigating to http://my_mwmanager_host:8080/. After a minute or two, you should see the the middleware manager status page.
 
-image::MiddlewareManagerForCloudForms.png[alt="Middleware Manager Console"]
+image::MiddlewareManagerForCloudForms.png[alt="Middleware Manager Status Page"]
