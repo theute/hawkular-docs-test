@@ -2,11 +2,13 @@
 = Cassandra Cluster Setup
 
 == Adding Nodes
-If you need to expand the Cassandra cluster on the same machine, you can launch a new Cassandra container and configure it to point to the seed container.
-
-NOTE: Make sure that you provide a valid seed container so the new node can bootstrap properly.
+If you need to expand the Cassandra cluster on the same machine, you can launch a new Cassandra container and configure it to point to the seed container. Make sure that you provide a valid seed container so the new node can bootstrap properly.
 
 . Launch the new Cassandra container.
++
+
+NOTE: If the cluster needs to run on a separate machine, you must specify the option `-e CASSANDRA_BROADCAST_ADDRESS=<public-ip>` on each node that is launched, where `public-ip` is the IP of the machine on the network.  It is not possible to combine the approach of having multiple nodes on the same box and nodes on a remote box for one cluster.
+
 +
 [source, bash]
 ----
