@@ -46,8 +46,8 @@ Each time you want to add a new node to the cluster, you should repeat this enti
 == Removing a Node.
 
 . Select the node to be removed from the cluster. You can obtain a list of nodes by running `docker ps`.
-. After you have selected the node, whether the node is up or down using `nodetool status`.
-. Run the decommission process inside the container. This process will move data to the other nodes, and replicate the appropriate data.
+. After you have selected the node, check whether the node is up or down using `nodetool status`.
+. Run the decommission process inside the container. This process will move data to the other nodes and replicate the appropriate data.
 +
 [source, bash]
 ----
@@ -81,7 +81,7 @@ or
 docker rm --force my_container_id
 ----
 
-== Replacing a node
+== Replacing a Node
 
 If something goes wrong with one node, you can replace it with a new one.
 
@@ -99,7 +99,7 @@ DN  172.17.0.2  166.47 KiB  256          63.4%             b73c89e5-e2e1-470e-87
 UN  172.17.0.4  83.71 KiB  256          69.0%             fe1e6949-1fc7-496a-a572-a3416b47d16f  rack1
 ----
 +
-. If there is a dead node,get the IP address of that node.
+. If there is a dead node, get the IP address of that node.
 . Start a new node container using the following command, where `node_replaced_ip` is the IP of the node we want to replace.
 +
 [source, bash]
@@ -113,7 +113,4 @@ docker run -d -e JVM_OPTS="-Dcassandra.replace_address=<node_replaced_ip>" \
 ----
 +
 . Run `nodetool status` again to see if the node was replaced.
-. After the new node finishes the bootstrap process, wait 72 hours for remove the old node.
-////
-Why do you have to wait 72 hours to delete a node when you replace a node but not when you remove one?
-////
+. After the new node finishes the bootstrap process, you can remove the old node.
