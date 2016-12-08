@@ -1,2 +1,4 @@
 [[new_features]]
 = New Features and Enhancements
+
+NOTE: *This is "test" content.*
