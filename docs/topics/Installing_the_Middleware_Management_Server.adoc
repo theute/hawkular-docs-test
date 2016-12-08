@@ -124,6 +124,6 @@ docker run --name mwmanager  -d \
 
 |===
 +
-. Verify the {ProductShortname} installation by launching a brower and navigating to http://my_mwmanager_host:8080/. After a minute or two, you should see the the middleware manager status page.
+. Verify the {ProductShortname} installation by launching a brower and navigating to http://my_mwmanager_host:8080/. After a minute or two, you should see the middleware manager status page.
 
 image::MiddlewareManagerForCloudForms.png[alt="Middleware Manager Status Page"]

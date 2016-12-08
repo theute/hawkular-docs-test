@@ -44,22 +44,3 @@ The script provides links to both AsciiDoctor and ccutil builds for each of the 
 You can also build a single guide. Navigate to the folder of the book you want to build and type the following command:
 
         $ ./buildGuide.sh
-
-### To modify the Example Book for Your Documentation
-
-1. Add your Asciidoc `*.adoc` files to the `topics/` folder.
-2. Replace the values in the `docs/topics/document-attributes.adoc` file for your documentation.
-  * Replace the product names and releases.
-  * Replace the book names.
-3. Use 'git mv' to rename the book folder names.
-
-        $ cd My_Title_A
-        $ git mv My_Title_A Installation_Guide.
-
-4. In a terminal, navigate to each book folder and add the symlink to the `topics/` using this command:
-
-        $ ln -s ../topics topics
-
-5. Within each book folder, modify the `master-docinfo.xml` file to set the appropriate title, product, release, and other values for the build of the book to the portal.
-6. Within each book folder, modify the `master.adoc` file to set the appropriate title, document attributes, and include the appropriate `topics/` content.
-7. When you are ready, run the scripts to build the guides and review the output to make sure it looks correct.
