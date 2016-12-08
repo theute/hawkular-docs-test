@@ -6,22 +6,38 @@ Cause - Why did this happen?
 Workaround (If there is one)- What can you do to avoid or negate the effects of this issue in the meantime?  Sometimes if there is no workaround it is worthwhile telling readers to contact support for advice.
 ////
 
-https://bugzilla.redhat.com/show_bug.cgi?id=1383414[BZ-1383414]
+NOTE: *This is "test" content.*
 
-https://bugzilla.redhat.com/show_bug.cgi?id=1383426[BZ-1383426]
+These known issues exist in {ProductName} at this time:
 
-https://bugzilla.redhat.com/show_bug.cgi?id=1383611[BZ-1383611]
+BZ# https://bugzilla.redhat.com/show_bug.cgi?id=1383414[1383414]
 
-https://bugzilla.redhat.com/show_bug.cgi?id=1383637[BZ-1383637]
+After creating a new datasource, it is not listed for the server.
+This is casued by performing an AddDatasourceRequest action without specifying the datasourceProperties property.  Without this property the agent fails with an NullPointerException when it tries to add the datasource and the datasource is not created.
 
-https://bugzilla.redhat.com/show_bug.cgi?id=1384669[BZ-1384669]
+The root cause of this issue is https://issues.jboss.org/browse/HWKAGENT-146[HWKAGENT-1127], which has been resolved.  The fix is due in the next release of the Hawkular agent.
+
+BZ#
+https://bugzilla.redhat.com/show_bug.cgi?id=1383426[1383426]
+
+In the "Add Datasource" wizard, there is no way to select existing JDBC driver from list or add new JDBC driver.
+
+BZ#
+https://bugzilla.redhat.com/show_bug.cgi?id=1383611[1383611]
+
+The "Add Datasource" wizard currently only supports the addition of non-XA datasources.
+The ability to create an XA datasource will be added in a future release.
+
+BZ#
+https://bugzilla.redhat.com/show_bug.cgi?id=1383637[1383637]
+
+Adding new JDBC driver with incorrect parameters fails but the user interface displays the message "JDBC Driver has been installed on this server".  The failure is noted in the EAP server.log.
+
+BZ#
+https://bugzilla.redhat.com/show_bug.cgi?id=1384669[1384669]
 When starting the middleware management services, receive the following container log ERROR:
 ----
 ERROR [org.jboss.as.ejb3.invocation] (Thread-10 (ActiveMQ-client-global-threads-515103874)) WFLYEJB0034: EJB Invocation failed on component HawkularTopicListener for method public void org.hawkular.bus.common.consumer.BasicMessageListener.onMessage(javax.jms.Message): javax.ejb.EJBException: java.lang.NullPointerException
 ----
 
 The root cause of this issue is https://issues.jboss.org/browse/HAWKULAR-1127[HAWKULAR-1127], which has been resolved.  The fix is due in the next release of Hawkular Services.
-
-https://bugzilla.redhat.com/show_bug.cgi?id=1388040[BZ-1388040]
-
-https://bugzilla.redhat.com/show_bug.cgi?id=1394040[BZ-1394040]

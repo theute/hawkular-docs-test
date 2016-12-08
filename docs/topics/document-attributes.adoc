@@ -10,8 +10,8 @@
 //
 :ProductName: Red Hat Middleware Management
 :ProductShortName: middleware management
-:ProductRelease: 1
-:ProductVersion: 1.0
+:ProductRelease: 
+:ProductVersion:
 :ServerDownloadURL: registry.access.redhat.com
 :AgentDownloadURL: registry.access.redhat.com
 //
