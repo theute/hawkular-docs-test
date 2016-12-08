@@ -7,7 +7,7 @@ include::topics/document-attributes.adoc[]
 NOTE: This release of {ProductName} is a technical preview. Technology Previews provide early access to upcoming product innovations, letting you to test new features and provide feedback during the development process. Technology Preview releases are _not_ intended for production use.
  For more information see the  https://access.redhat.com/support/offerings/production/scope_moredetail[Red Hat Customer Portal.]
 
-This document provides instructions for installing {ProductName}.  The installation media is two container files available from {ServerDownloadURL}.
+This document provides instructions for installing {ProductName}.  The installation media is two Docker container files available from {ServerDownloadURL}.
 
 include::topics/Architecture_Overview.adoc[leveloffset=+2]
 
