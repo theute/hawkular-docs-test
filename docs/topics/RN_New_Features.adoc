@@ -1,4 +1,118 @@
 [[new_features]]
-= New Features and Enhancements
+= {ProductName} Features
 
-NOTE: *This is "test" content.*
+NOTE: *This is draft content.*
+
+The middleware provider provides several dedicated views of important middleware server groupings.  You can view  Enterprise Application Platform (EAP) domains and server groups, and drill down to view the availability and state of your middleware servers.
+
+image::CloudForms_MWProvider_Summary.png[title="Provider Summary Screen", alt="Provider Summary"]
+
+(10) *Middleware Provider Inventory*
+
+When viewing the discovered inventory, Red Hat JBoss Enterprise Application Platform (EAP) Servers can have parent relations to the following entities:
+
+* Middleware Provider
+* Virtual Machines
+* EAP Server Group
+
+EAP Servers can have child relations to the following entities:
+
+* Deployments
+* DataSources
+* Message Brokers
+
+(15) *Middleware Provider Power Operations*
+
+Using the middleware provider you can perform the following power operations on EAP servers:
+
+* Gracefully Shutdown Server - rejects new sessions and allows sessions to complete
+* Restart Server - restarts the Java Virtual Machine (JVM)
+* Stop Server - stop the session and shutdown the JVM.
+* Suspend and Resume - stop sessions but do not shutdown
+* Reload Server - restarts the server but not the JVM
+
+NOTE: The technical preview does not yet support the "start" operation. 
+
+(16)(17) *Middleware Provider Datasources*
+
+For standalone EAP servers you can create datasources.  You can also create datasource drivers for all supported EAP databases and add user provided drivers.
+
+(18) *Middleware Provider Application Deployment*
+
+For standalone EAP servers you can add application deployments.
+
+(19)(20)(21)(22)(23) *Middleware Provider Monitoring*
+
+The middleware monitor provides a timeline view where you can see:
+
+* Alerts triggered by
+** Heap Used
+** Non Heap Used
+** Garbage Collection
+* Events tracked
+** Application Deployement
+** Applicaiton Undeployment
+** Datasource Deployment
+** Datasource Undeployment
+
+The middleware provider monitors local capacity and utilization, including the utilization of the following resources:
+
+* Datasource availability
+** Available
+** In Use
+** Timed Out
+* Datasource responsiveness
+** Creation Time
+** Get Time
+** Wait Time
+* Garbage Collection Duration 
+* JVM Heap Memory
+** Committed
+** Max
+** Used
+* JVM Non-Heap Memory
+** Used Committed
+* Messaging
+** Delivering Message Count
+** Durable Message Count
+** Non-durable Message Count
+** Messages Added
+** Messages Count
+* Messaging Subscribers
+** Durable Subscribers
+** Non-durable Subscribers
+** Subscriptions
+* Transactions
+** Aborted
+** Application Failure
+** Committed
+** Heuristic
+** Resource Failure
+** Timed-Out
+* Web Sessions
+** Active
+** Expired
+** Rejected
+
+(24)*Middleware Provider Reports*
+
+The middleware provider comes with the following pre-configured reports:
+
+* JVM Heap and Non-heap consumption
+* JVM Garbage Collection
+* EAP JTA Transactions
+
+
+(25) *Middleware Provider Topology*
+
+The middleware provider includes an interactive user interface that allows you to view the network topology of managed entitites, including the following:
+
+* Datasources
+* Deployments
+* EAP Domains
+* Messaging (Queues/Topics)
+* EAP Servers
+* EAP Server groups
+* Virtual Machines
+
+image::CloudForms_Topology.png[title="Topology View", alt=Topology View"]
