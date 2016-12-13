@@ -6,7 +6,7 @@ Cause - Why did this happen?
 Workaround (If there is one)- What can you do to avoid or negate the effects of this issue in the meantime?  Sometimes if there is no workaround it is worthwhile telling readers to contact support for advice.
 ////
 
-NOTE: *This is "test" content.*
+NOTE: *This is only a preliminary list to test generating doc output.*
 
 These known issues exist in {ProductName} at this time:
 

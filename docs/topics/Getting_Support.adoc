@@ -1,0 +1,12 @@
+[[getting_support]]
+= Getting Support
+
+If you experience difficulty with a procedure described in this documentation, visit the Red Hat Customer Portal at http://access.redhat.com. Through the customer portal, you can:
+
+* Search or browse through a knowledgebase of technical support articles about Red Hat products
+* Submit a support case to Red Hat Global Support Services (GSS)
+* Access other product documentation
+
+Red Hat also hosts a large number of electronic mailing lists for discussion of Red Hat software and technology. You can find a list of publicly available mailing lists at https://www.redhat.com/mailman/listinfo. Click on the name of any mailing list to subscribe to that list or to access the list archives.
+
+If you have a suggestion for improving this guide or have found an error, please submit a Bugzilla report at http://bugzilla.redhat.com against *JBoss Middleware Manager* for the *Documentation* component. Please provide specific details, such as the section number, guide name, and CloudForms version so we can easily locate the content. 

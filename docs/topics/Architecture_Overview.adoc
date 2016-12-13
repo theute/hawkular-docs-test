@@ -1,7 +1,7 @@
 [[architecture_overview]]
 = Architecture Overview
 
-Installing the {ProductName} solution involves installing the following components:
+Installing the  {ProductName} solution involves installing the following components: 
 
 * *Middleware management server*: A JBoss Enterprise Application Platform (EAP) 7 based application that collects metrics and events from middleware servers and sends that data to the CloudForms console. The middleware management server also executes operations on middleware servers.  This is delivered as a Linux container image.
 * *PostgreSQL database*: Storage for the middleware inventory. It can be a small scale installation as the quantity of information stored is small and the traffic to the database is low.  This must be separately installed.
