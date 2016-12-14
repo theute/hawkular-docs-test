@@ -8,9 +8,9 @@ be installed first, etc.
 The installation instructions for the {ProductName} server assume that you already have the following in place:
 
 * Red Hat Enterprise Linux 7.2 or higher or Red Hat Enterprise Atomic Host 7.2 or higher. For installation instructions, refer to the
-link:https://access.redhat.com/documentation/en/red-hat-enterprise-linux/[Red Hat Enterprise Linux installation guide.]
+link:https://access.redhat.com/documentation/en/red-hat-enterprise-linux/[Red Hat Enterprise Linux installation guide].
 * Red Hat CloudForms 4.2 installed.  For installation instructions,  refer to the
-link:https://access.redhat.com/documentation/en/red-hat-cloudforms/[Red Hat CloudForms installation guide]
+link:https://access.redhat.com/documentation/en/red-hat-cloudforms/[Red Hat CloudForms installation guide].
 * Docker version 1.8 or higher.
 * PostgreSQL 9.4 or higher.
 
@@ -18,7 +18,7 @@ link:https://access.redhat.com/documentation/en/red-hat-cloudforms/[Red Hat Clou
 [[docker_configuration]]
 == Installing and Configuring Docker
 
-. Register your Linux machine and add extra repositories for Docker support.
+. Register your Linux machine and add the following repositories for Docker support.
 +
 [source, bash]
 ----
@@ -80,14 +80,14 @@ sudo firewall-cmd --permanent --add-port=5432/tcp
 sudo firewall-cmd --add-port=5432/tcp
 ----
 +
-. Edit `/var/opt/rh/rh-postgresql95/lib/pgsql/data/postgresql.conf` to allow remote connections.  Add the following line:
+. Edit *_/var/opt/rh/rh-postgresql95/lib/pgsql/data/postgresql.conf_* to allow remote connections.  Add the following line:
 +
 .postgresql.conf
 ----
 listen_addresses = '*'
 ----
 +
-. Edit `/var/lib/pgsql/data/pg_hba.conf` to allow a user to connect to the `mwmanager` database.  Add the following line (Replace `my_db_username` with the value of your choice):
+. Edit *_/var/lib/pgsql/data/pg_hba.conf_* to allow a user to connect to the *mwmanager* database.  Add the following line (Replace `_my_db_username_` with the value of your choice):
 +
 .pg_hba.conf
 ----
@@ -101,7 +101,7 @@ host   mwmanager   my_db_username   0.0.0.0/0   md5
 systemctl restart rh-postgresql95-postgresql.service
 ----
 +
-. Create the `mwmanager` database.
+. Create the *mwmanager* database.
 +
 ----
 su postgres
@@ -109,7 +109,7 @@ systemctl enable rh-postgresql95-postgresql.service
 psql
 ----
 +
-Replace `my_db_username` with the value chosen in `pg_hba.conf` and `my_db_password` with the value of your choice.
+Replace `_my_db_username_` with the value chosen in *_pg_hba.conf_* and `_my_db_password_` with the value of your choice.
 +
 ----
 postgres=# CREATE USER my_db_username WITH PASSWORD 'my_db_password';

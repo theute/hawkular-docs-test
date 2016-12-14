@@ -10,20 +10,20 @@ The {ProductShortName} services require a running Cassandra instance.
 . Run the Cassandra container.
 +
 ----
-docker run --name hawkular-cassandra -d -e CASSANDRA_START_RPC=true brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+docker run --name mwmanager-cassandra -d -e CASSANDRA_START_RPC=true registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:latest
 ----
 +
 [[configuring_cassandra]]
 . Configure the Cassandra data location.
- By default the Cassandra container will create a volume under `/opt/apache-cassandra/data`.  This container directory will automatically be mapped to a unique local directory which you can view using `docker inspect <container-id>`.
+ By default the Cassandra container will create a volume under *_/opt/apache-cassandra/data_*.  This container directory will automatically be mapped to a unique local directory which you can view using `docker inspect <container-id>`.
 You can use the `-v` option to map the Cassandra data volume to a specific host directory.
 +
 NOTE: The `Z` option is necessary on RHEL/Fedora based systems to correctly set the SELinux permissions.
 
 +
 ----
-docker run --name hawkular-cassandra -d -e CASSANDRA_START_RPC=true -v /tmp/mydatadir:/opt/apache-cassandra/data:Z
-brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+docker run --name mwmanager-cassandra -d -e CASSANDRA_START_RPC=true -v /tmp/mydatadir:/opt/apache-cassandra/data:Z
+registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:latest
 ----
 +
 
@@ -40,7 +40,7 @@ docker ps
 docker exec -it <container_id> /opt/apache-cassandra/bin/nodetool info
 ----
 
-[[cassandar_non-default_user]]
+[[cassandra_non-default_user]]
 == Running Cassandra with a Non-default User
 You can run the Cassandra container with an arbitrary user ID, however, that user must have permissions to write to the Cassandra data volume.
 
@@ -48,25 +48,23 @@ NOTE: The `Z` option is necessary on RHEL/Fedora based systems to correctly set 
 
 ----
 chown myuser:myuser /tmp/mydatadir
-docker run --name hawkular-cassandra -d -e CASSANDRA_START_RPC=true --user $(id -u myuser) -v /tmp/mydatadir:/opt/apache-cassandra/data:Z
-brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+docker run --name mwmanager-cassandra -d -e CASSANDRA_START_RPC=true --user $(id -u myuser) -v /tmp/mydatadir:/opt/apache-cassandra/data:Z
+registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:latest
 ----
 
-= Starting the Hawkular Services
-////
-Need to verify that this is still called "Hawkular"
-////
-. Start the hawkular-services and link it to the running Cassandra instance.
+= Starting the Middleware Manager Services
+
+. Start the mwmanager-services and link it to the running Cassandra instance.
 +
 ----
-docker run -d --link=hawkular-cassandra
--e CASSANDRA_NODES=hawkular-cassandra
+docker run -d --link=mwmanager-cassandra
+-e CASSANDRA_NODES=mwmanager-cassandra
 -e HAWKULAR_BACKEND=remote
--p 8080:8080 -p 8443:8443 -p 9990:9990 brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/hawkular/hawkular-services:latest
+-p 8080:8080 -p 8443:8443 -p 9990:9990 registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager:latest
 ----
 +
-. Run the Middleware Manager container and tell it to connect to Cassandra.  Change `my_db_username`, `my_db_password`, and `my_db_host` to the values you
-used when you configured PostgreSQL, and set a new combination of username/password for `HAWKULAR_USERNAME` and `HAWKULAR_PASSWORD`.
+. Run the Middleware Manager container and tell it to connect to Cassandra.  Change `_my_db_username_`, `_my_db_password_`, and `_my_db_host_` to the values you
+used when you configured PostgreSQL, and set a new combination of username/password for `*HAWKULAR_USERNAME*` and `*HAWKULAR_PASSWORD*`.
 +
 [source, bash]
 ----
@@ -76,49 +74,49 @@ docker run --name mwmanager  -d \
           -e HAWKULAR_INVENTORY_JDBC_URL=jdbc:postgresql://my_db_host:5432/mwmanager
           -e HAWKULAR_INVENTORY_JDBC_USERNAME=my_db_username \
           -e HAWKULAR_INVENTORY_JDBC_PASSWORD=my_db_password \
-          -e HAWKULAR_USERNAME=my_mwmanager_user \
+          -e HAWKULAR_USERNAME=my_mwmanager_username \
           -e HAWKULAR_PASSWORD=my_mwmanager_password \
           -p 8080:8080 -p 8443:8443 -p 9990:9990 \
           --link=mwmanager-cassandra
-          brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/hawkular/hawkular-services:latest
+          registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager:latest
 ----
 +
 .Service Options
 |===
 |Name |Default |Description
-|ADD_HAWKULAR_USER
+|`*ADD_HAWKULAR_USER*`
 |true
 |Whether to add a user to {ProductShortName} before the server starts
 
-|HAWKULAR_USERNAME
+|`*HAWKULAR_USERNAME*`
 |jdoe
 |Username for the new user
 
-|HAWKULAR_PASSWORD
+|`*HAWKULAR_PASSWORD*`
 |password
 |Password for the new user
 
-|CASSANDRA_NODES
+|`*CASSANDRA_NODES*`
 |myCassandra
 |The hostname or IP of Cassandra
 
-|HAWKULAR_METRICS_TTL
+|`*HAWKULAR_METRICS_TTL*`
 |14
 |
 
-|DB_TIMEOUT
+|`*DB_TIMEOUT*`
 |-
 |If set, will wait for specified number of seconds for Cassandra to start before starting {ProductShortName}.
 
-|HAWKULAR_INVENTORY_JDBC_URL
+|`*HAWKULAR_INVENTORY_JDBC_URL*`
 |-
 |For example, `jdbc:postgresql://my_db_host:5432/mwprovider`
 
-|HAWKULAR_INVENTORY_JDBC_USERNAME
+|`*HAWKULAR_INVENTORY_JDBC_USERNAME*`
 |-
 |PostgreSQL username
 
-|HAWKULAR_INVENTORY_JDBC_PASSWORD
+|`*HAWKULAR_INVENTORY_JDBC_PASSWORD*`
 |-
 |PostgreSQL password
 
