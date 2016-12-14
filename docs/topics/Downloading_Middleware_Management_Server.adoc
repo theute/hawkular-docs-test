@@ -10,11 +10,11 @@ https://access.redhat.com/search/#/container-images  ???
 . Pull the Docker container image from the registry, for example:
 +
 ----
-docker pull brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss-eap-7-tech-preview/eap70
+docker pull registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager:latest
 ----
 +
 . Pull the Cassandra container image from the registry, for example:
 +
 ----
-docker pull brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+docker pull registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:latest
 ----

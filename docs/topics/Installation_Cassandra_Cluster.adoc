@@ -1,7 +1,7 @@
 [[cassandra_clusters]]
 = Cassandra Cluster Setup
 
-== Adding Nodes
+== Adding Cassandra Nodes
 If you need to expand the Cassandra cluster on the same machine, you can launch a new Cassandra container and configure it to point to the seed container. Make sure that you provide a valid seed container so the new node can bootstrap properly.
 
 . Launch the new Cassandra container.
@@ -14,7 +14,7 @@ NOTE: If the cluster needs to run on a separate machine, you must specify the op
 ----
 docker run -d -e CASSANDRA_SEEDS=mwmanager-cassandra -d \
               --link mwmanager-cassandra  \
-              brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+              registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:latest
 ----
 +
 . Verify the container has launched using the `docker ps` command.
@@ -45,7 +45,7 @@ docker exec -it <container_id> /opt/apache-cassandra/bin/nodetool cleanup
 +
 Each time you want to add a new node to the cluster, you should repeat this entire process.
 
-== Removing a Node.
+== Removing a Cassandra Node.
 
 . Select the node to be removed from the cluster. You can obtain a list of nodes by running `docker ps`.
 . After you have selected the node, check whether the node is up or down using `nodetool status`.
@@ -83,7 +83,7 @@ or
 docker rm --force my_container_id
 ----
 
-== Replacing a Node
+== Replacing a Cassandra Node
 
 If something goes wrong with one node, you can replace it with a new one.
 
@@ -102,7 +102,7 @@ UN  172.17.0.4  83.71 KiB  256          69.0%             fe1e6949-1fc7-496a-a57
 ----
 +
 . If there is a dead node, get the IP address of that node.
-. Start a new node container using the following command, where `node_replaced_ip` is the IP of the node we want to replace.
+. Start a new node container using the following command, where `node_replaced_ip` is the IP of the node you want to replace.
 +
 [source, bash]
 ----
@@ -110,7 +110,7 @@ docker run -d -e JVM_OPTS="-Dcassandra.replace_address=<node_replaced_ip>" \
            -e CASSANDRA_SEEDS=mwmanager-cassandra\
            -e CASSANDRA_START_RPC=true \
            --link mwmanager-cassandra \
-           brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/jboss/cassandra:latest
+           registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:latest
 
 ----
 +
