@@ -10,8 +10,8 @@
 //
 :ProductName: Red Hat Middleware Management
 :ProductShortName: middleware management
-:ProductRelease: 
-:ProductVersion:
+:ProductRelease: 7
+:ProductVersion: 7.0.TechPreview
 :ServerDownloadURL: registry.access.redhat.com
 :AgentDownloadURL: registry.access.redhat.com
 //
@@ -20,7 +20,7 @@
 //Changing the value changes the generated URL.
 //
 :DocInfoProductName: red-hat-middleware-management
-:DocInfoProductNumber: 1.0 
+:DocInfoProductNumber: 7.0.TechPreview
 //
 // Book Names:
 //     Defining the book names in document attributes instead of hard-coding them in
