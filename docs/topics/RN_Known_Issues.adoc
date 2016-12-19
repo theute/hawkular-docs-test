@@ -15,7 +15,7 @@ BZ# https://bugzilla.redhat.com/show_bug.cgi?id=1383414[1383414]
 After creating a new datasource, it is not listed for the server.
 This is caused by performing an AddDatasourceRequest action without specifying the datasourceProperties property.  Without this property the agent fails with an NullPointerException when it tries to add the datasource and the datasource is not created.
 
-The root cause of this issue is https://issues.jboss.org/browse/HWKAGENT-146[HWKAGENT-1127], which has been resolved.  The fix is due in the next release of the Hawkular agent.
+The root cause of this issue is https://issues.jboss.org/browse/HWKAGENT-146[HWKAGENT-1127], which has been resolved.  The fix is due in the next release of the middleware management agent.
 
 BZ#
 https://bugzilla.redhat.com/show_bug.cgi?id=1383426[1383426]
@@ -35,19 +35,24 @@ Adding new JDBC driver with incorrect parameters fails but the user interface di
 
 BZ#
 https://bugzilla.redhat.com/show_bug.cgi?id=1384669[1384669]
-When starting the middleware management services, receive the following container log ERROR:
+
+When starting the middleware management services, receive the following container log error:
 ----
 ERROR [org.jboss.as.ejb3.invocation] (Thread-10 (ActiveMQ-client-global-threads-515103874)) WFLYEJB0034: EJB Invocation failed on component HawkularTopicListener for method public void org.hawkular.bus.common.consumer.BasicMessageListener.onMessage(javax.jms.Message): javax.ejb.EJBException: java.lang.NullPointerException
 ----
 
-The root cause of this issue is https://issues.jboss.org/browse/HAWKULAR-1127[HAWKULAR-1127], which has been resolved.  The fix is due in the next release of Hawkular Services.
+The root cause of this issue is https://issues.jboss.org/browse/HAWKULAR-1127[HAWKULAR-1127], which has been resolved.  The fix is due in the next release of the middleware management server.
 
 BZ#
 https://bugzilla.redhat.com/show_bug.cgi?id=138040[138040]
-1394040
 
+When loading the Middleware Provider timeline, if there are failure events in the timeline the page loads endlessly with a JavaScript error in the browser console similar to the following:
 
+  SyntaxError: JSON.parse: expected ',' or '}' after property value in object at line 1 column 736 of the JSON data
+
+The fix is due in the next release of the middleware management server.
 
 BZ#
 https://bugzilla.redhat.com/show_bug.cgi?id=1394040[1394040]
-1394040
+
+When refreshing the status of the middleware manager (Configuration > Refresh Items and Relationships), received the following error: `unknown attribute '_object' for MiddlewareServerGroup`.

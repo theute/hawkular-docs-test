@@ -3,7 +3,7 @@ include::topics/document-attributes.adoc[]
 = {Server_RN_BookName}
 
 [[RN_intro]]
-== Introduction to {ProductName}{ProductVersion}
+== Introduction to {ProductName} {ProductVersion}
 
 NOTE: This release of {ProductName} is a technical preview. Technology Previews provide early access to upcoming product innovations, letting you to test new features and provide feedback during the development process. Technology Preview releases are _not_ intended for production use. For more information see the https://access.redhat.com/support/offerings/techpreview/[Red Hat Customer Portal.]
 
