@@ -1,10 +1,6 @@
 [[starting_cassandra]]
 = Install and Configure Cassandra
 
-////
-Would like to be able to provide more context as to why we need the Cassandra instance and what role it plays.
-Also, need to verify that this command is correct?  This doesn't look like we're connecting to a local instance?
-////
 The {ProductShortName} services require a running Cassandra instance.
 
 . Run the Cassandra container.
@@ -12,9 +8,9 @@ The {ProductShortName} services require a running Cassandra instance.
 ----
 docker run --name mwmanager-cassandra -d -e CASSANDRA_START_RPC=true registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:latest
 ----
+IMPORTANT: `CASSANDRA_START_RPC` must be set to `true`.
 +
-[[configuring_cassandra]]
-. Configure the Cassandra data location.
+. (Optional) Configure the Cassandra data location.
  By default the Cassandra container will create a volume under *_/opt/apache-cassandra/data_*.  This container directory will automatically be mapped to a unique local directory which you can view using `docker inspect <container-id>`.
 You can use the `-v` option to map the Cassandra data volume to a specific host directory.
 +
@@ -28,17 +24,30 @@ registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:
 +
 
 . Verify that the server is running.
+
 +
 [source, bash]
 ----
 docker ps
 ----
++
+.Result
+----
+CONTAINER ID   IMAGE                                                                         COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+34a75ba45be8   registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:latest   "/docker-entrypoint.s"   44 seconds ago   Up 44 seconds   7000-7001/tcp, 7199/tcp, 9042/tcp, 9160/tcp   mwmanager-cassandra
+----
+
 .  View the node information.
+
 +
 [source, bash]
 ----
 docker exec -it <container_id> /opt/apache-cassandra/bin/nodetool info
 ----
+
+////
+Need example output for exec command
+////
 
 [[cassandra_non-default_user]]
 == Running Cassandra with a Non-default User
@@ -83,42 +92,56 @@ docker run --name mwmanager  -d \
 +
 .Service Options
 |===
-|Name |Default |Description
+|Name |Default |Description |Datastore
 |`*ADD_HAWKULAR_USER*`
 |true
 |Whether to add a user to {ProductShortName} before the server starts
-
-|`*HAWKULAR_USERNAME*`
-|jdoe
-|Username for the new user
-
-|`*HAWKULAR_PASSWORD*`
-|password
-|Password for the new user
+|Cassandra
 
 |`*CASSANDRA_NODES*`
 |myCassandra
 |The hostname or IP of Cassandra
-
-|`*HAWKULAR_METRICS_TTL*`
-|14
-|
+|Cassandra
 
 |`*DB_TIMEOUT*`
 |-
 |If set, will wait for specified number of seconds for Cassandra to start before starting {ProductShortName}.
+|Cassandra
+
+|`*HAWKULAR_BACKEND*`
+|remote
+|
+|Cassandra
 
 |`*HAWKULAR_INVENTORY_JDBC_URL*`
 |-
 |For example, `jdbc:postgresql://my_db_host:5432/mwprovider`
+|PostgreSQL
 
 |`*HAWKULAR_INVENTORY_JDBC_USERNAME*`
 |-
 |PostgreSQL username
+|PostgreSQL
 
 |`*HAWKULAR_INVENTORY_JDBC_PASSWORD*`
 |-
 |PostgreSQL password
+|PostgreSQL
+
+|`*HAWKULAR_METRICS_TTL*`
+|14
+|
+|Cassandra
+
+|`*HAWKULAR_USERNAME*`
+|jdoe
+|Username for the new user
+|Cassandra
+
+|`*HAWKULAR_PASSWORD*`
+|password
+|Password for the new user
+|Cassandra
 
 |===
 +

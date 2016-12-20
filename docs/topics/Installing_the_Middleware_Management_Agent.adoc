@@ -21,7 +21,7 @@ After you have downloaded the `*.jar*` file, use one of the following commands t
 ----
 java -jar ~Downloads/hawkular-wildfly-agent-installer.jar
    --target-location=/opt/jboss-eap-7.0/
-   --server-url=http://192.168.1.123:8080
+   --server-url=http://my_mwmanager_host:8080
    --username=my_mwmanager_username
    --password=my_mwmanager_password
 ----
@@ -32,7 +32,7 @@ java -jar ~Downloads/hawkular-wildfly-agent-installer.jar
 java -jar ~Downloads/hawkular-wildfly-agent-installer.jar
    --target-location=/opt/jboss-eap-7.0/
    --target-config=/opt/jboss-eap-7.0/domain/configuration/host.xml
-   --server-url=http://192.168.1.123:8080
+   --server-url=http://my_mwmanager_host:8080
    --username=my_mwmanager_username
    --password=my_mwmanager_password
 ----
