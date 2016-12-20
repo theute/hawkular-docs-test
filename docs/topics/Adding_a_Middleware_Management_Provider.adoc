@@ -32,4 +32,6 @@ The Hostname must use a unique fully qualified domain name?
 +
 CloudForms displays the Summary screen.
 +
+. Click the *Configuration* button and select *Refresh items and relationships* from the menu.
++
 image::MW_Provider_Summary.png[Provider Summary Screen]
