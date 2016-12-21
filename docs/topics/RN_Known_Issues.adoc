@@ -58,9 +58,3 @@ https://bugzilla.redhat.com/show_bug.cgi?id=1405092[1405092]
 
 Middleware manager Server fails to start due to low disk space but does not give a descriptive error message in either the Hawkular Service log or the Cassandra log.
 
-
-
-
-
-
-
