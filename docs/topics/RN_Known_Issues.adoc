@@ -6,48 +6,57 @@ Cause - Why did this happen?
 Workaround (If there is one)- What can you do to avoid or negate the effects of this issue in the meantime?  Sometimes if there is no workaround it is worthwhile telling readers to contact support for advice.
 ////
 
-NOTE: *This is only a preliminary list to test generating doc output.*
+NOTE: *Domain mode is not yet fully supported in the technical preview.*
 
 These known issues exist in {ProductName} at this time:
 
-BZ# https://bugzilla.redhat.com/show_bug.cgi?id=1383414[1383414]
+BZ# 
+https://bugzilla.redhat.com/show_bug.cgi?id=1387287[1387287]
 
-After creating a new datasource, it is not listed for the server.
-This is caused by performing an AddDatasourceRequest action without specifying the datasourceProperties property.  Without this property the agent fails with an NullPointerException when it tries to add the datasource and the datasource is not created.
+Hawkular-Services: CVEs found in latest docker image by OpenSCAP scanning tool.
 
-The root cause of this issue is https://issues.jboss.org/browse/HWKAGENT-146[HWKAGENT-1127], which has been resolved.  The fix is due in the next release of the Hawkular agent.
+BZ# 
+https://bugzilla.redhat.com/show_bug.cgi?id=1387301[1287301]
 
-BZ#
-https://bugzilla.redhat.com/show_bug.cgi?id=1383426[1383426]
+Cassandra: CVEs found in latest docker image by OpenSCAP scanning tool.
 
-In the "Add Datasource" wizard, there is no way to select existing JDBC driver from list or add new JDBC driver.
+BZ# 
+https://bugzilla.redhat.com/show_bug.cgi?id=1390756[1390756]
 
-BZ#
-https://bugzilla.redhat.com/show_bug.cgi?id=1383611[1383611]
-
-The "Add Datasource" wizard currently only supports the addition of non-XA datasources.
-The ability to create an XA datasource will be added in a future release.
-
-BZ#
-https://bugzilla.redhat.com/show_bug.cgi?id=1383637[1383637]
-
-Adding new JDBC driver with incorrect parameters fails but the user interface displays the message "JDBC Driver has been installed on this server".  The failure is noted in the EAP server.log.
-
-BZ#
-https://bugzilla.redhat.com/show_bug.cgi?id=1384669[1384669]
-When starting the middleware management services, receive the following container log ERROR:
-----
-ERROR [org.jboss.as.ejb3.invocation] (Thread-10 (ActiveMQ-client-global-threads-515103874)) WFLYEJB0034: EJB Invocation failed on component HawkularTopicListener for method public void org.hawkular.bus.common.consumer.BasicMessageListener.onMessage(javax.jms.Message): javax.ejb.EJBException: java.lang.NullPointerException
-----
-
-The root cause of this issue is https://issues.jboss.org/browse/HAWKULAR-1127[HAWKULAR-1127], which has been resolved.  The fix is due in the next release of Hawkular Services.
-
-BZ#
-https://bugzilla.redhat.com/show_bug.cgi?id=138040[138040]
-1394040
-
-
+After deleting an EAP Server Datasource, the deletion event does not appear on the timeline.
 
 BZ#
 https://bugzilla.redhat.com/show_bug.cgi?id=1394040[1394040]
-1394040
+
+When refreshing the status of the middleware manager (Configuration > Refresh Items and Relationships), received the following error: `unknown attribute '_object' for MiddlewareServerGroup`.
+
+BZ# 
+https://bugzilla.redhat.com/show_bug.cgi?id=1396225[1396225]
+
+When deploying a WAR file to an EAP domain server running in a container, received an `ERROR: Failed to process` message.
+
+BZ#
+https://bugzilla.redhat.com/show_bug.cgi?id=1402126[1392126]
+
+When using an external PostgreSQL for the inventory service, the storage adapter failed to store the available data.
+
+BZ# 
+https://bugzilla.redhat.com/show_bug.cgi?id=1403775[1403775]
+
+When starting a second EAP7 domain, the domain mode servers of the first EAP7 domain are missing in the inventory displayed in CloudForms.
+
+BZ# 
+https://bugzilla.redhat.com/show_bug.cgi?id=1404270[1404270]
+
+For EAP7 in domain mode, CloudForms does not display the underlying Virtual Machine attribute in the server details.  The underlying VM representation for each EAP7 server in domain mode is also missing in the Topology view.
+
+BZ# 
+https://bugzilla.redhat.com/show_bug.cgi?id=1404776[1404776]
+
+Currently there is not a way to enable SSL when starting a Hawkular Services container.
+
+BZ# 
+https://bugzilla.redhat.com/show_bug.cgi?id=1405092[1405092]
+
+Middleware manager Server fails to start due to low disk space but does not give a descriptive error message in either the Hawkular Service log or the Cassandra log.
+

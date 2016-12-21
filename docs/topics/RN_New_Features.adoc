@@ -1,13 +1,11 @@
 [[new_features]]
 = {ProductName} Features
 
-NOTE: *This is draft content.*
-
 The middleware provider provides several dedicated views of important middleware server groupings.  You can view  Enterprise Application Platform (EAP) domains and server groups, and drill down to view the availability and state of your middleware servers.
 
 image::CloudForms_MWProvider_Summary.png[title="Provider Summary Screen", alt="Provider Summary"]
 
-(10) *Middleware Provider Inventory*
+*Middleware Provider Inventory*
 
 When viewing the discovered inventory, Red Hat JBoss Enterprise Application Platform (EAP) Servers can have parent relations to the following entities:
 
@@ -21,7 +19,7 @@ EAP Servers can have child relations to the following entities:
 * DataSources
 * Message Brokers
 
-(15) *Middleware Provider Power Operations*
+*Middleware Provider Power Operations*
 
 Using the middleware provider you can perform the following power operations on EAP servers:
 
@@ -33,15 +31,15 @@ Using the middleware provider you can perform the following power operations on 
 
 NOTE: The technical preview does not yet support the "start" operation. 
 
-(16)(17) *Middleware Provider Datasources*
+*Middleware Provider Datasources*
 
 For standalone EAP servers you can create datasources.  You can also create datasource drivers for all supported EAP databases and add user provided drivers.
 
-(18) *Middleware Provider Application Deployment*
+*Middleware Provider Application Deployment*
 
 For standalone EAP servers you can add application deployments.
 
-(19)(20)(21)(22)(23) *Middleware Provider Monitoring*
+*Middleware Provider Monitoring*
 
 The middleware monitor provides a timeline view where you can see:
 
@@ -94,7 +92,7 @@ The middleware provider monitors local capacity and utilization, including the u
 ** Expired
 ** Rejected
 
-(24)*Middleware Provider Reports*
+*Middleware Provider Reports*
 
 The middleware provider comes with the following pre-configured reports:
 
@@ -103,7 +101,7 @@ The middleware provider comes with the following pre-configured reports:
 * EAP JTA Transactions
 
 
-(25) *Middleware Provider Topology*
+*Middleware Provider Topology*
 
 The middleware provider includes an interactive user interface that allows you to view the network topology of managed entitites, including the following:
 
