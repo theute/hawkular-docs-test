@@ -32,7 +32,8 @@ When refreshing the status of the middleware manager (Configuration > Refresh It
 
 BZ# 
 https://bugzilla.redhat.com/show_bug.cgi?id=1396225[1396225]
-When deploying a WAR file to an EAP domain server running in a container, received an ERROR: Failed to process message.
+
+When deploying a WAR file to an EAP domain server running in a container, received an `ERROR: Failed to process` message.
 
 BZ#
 https://bugzilla.redhat.com/show_bug.cgi?id=1402126[1392126]
@@ -41,6 +42,7 @@ When using an external PostgreSQL for the inventory service, the storage adapter
 
 BZ# 
 https://bugzilla.redhat.com/show_bug.cgi?id=1403775[1403775]
+
 When starting a second EAP7 domain, the domain mode servers of the first EAP7 domain are missing in the inventory displayed in CloudForms.
 
 BZ# 
