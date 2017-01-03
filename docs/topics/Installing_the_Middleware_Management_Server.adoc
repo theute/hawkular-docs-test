@@ -3,17 +3,13 @@
 
 The {ProductShortName} services require a running Cassandra instance.
 
-. Run the Cassandra container.
-+
-----
-docker run --name mwmanager-cassandra -d -e CASSANDRA_START_RPC=true registry.access.redhat.com/jboss-mm-7-tech-preview/middleware-manager-datastore:latest
-----
-IMPORTANT: `CASSANDRA_START_RPC` must be set to `true`.
-+
-. (Optional) Configure the Cassandra data location.
+. Run the Cassandra container and configure the Cassandra data location.
  By default the Cassandra container will create a volume under *_/opt/apache-cassandra/data_*.  This container directory will automatically be mapped to a unique local directory which you can view using `docker inspect <container-id>`.
 You can use the `-v` option to map the Cassandra data volume to a specific host directory.
 +
+IMPORTANT: `CASSANDRA_START_RPC` must be set to `true`.  If this option is set to `false` the middleware manager services cannot connect to Cassandra.
++
+
 NOTE: The `Z` option is necessary on RHEL/Fedora based systems to correctly set the SELinux permissions.
 
 +
@@ -110,7 +106,7 @@ docker run --name mwmanager  -d \
 
 |`*HAWKULAR_BACKEND*`
 |remote
-|
+|Indicates that the middleware manager services connects to a Cassandra server that is installed remotely.
 |Cassandra
 
 |`*HAWKULAR_INVENTORY_JDBC_URL*`
