@@ -27,7 +27,7 @@ The Hostname must use a unique fully qualified domain name?
 * *Password* - This should match the `*HAWKULAR_PASSWORD*`.
 * *Confirm Password* - Reenter the password.
 +
-. Before you add the provider, click the *Validate* button to confirm that the user has the proper credentials.
+. Click the *Validate* button to confirm that the user has the proper credentials.  You cannot add the provider until you validate the credentials.
 . Click *Add*.
 +
 CloudForms displays the Summary screen.

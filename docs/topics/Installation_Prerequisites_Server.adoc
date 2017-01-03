@@ -53,7 +53,7 @@ systemctl enable docker.service
 ////
 Would like to include a short overview of why we need PostgreSQL, that is, what we're using it for vs. Cassandra.
 ////
-Unless you already have a PostgreSQL 9.5 Server installed, you must install it.  You can install PostgreSQL on RHEL systems using `yum`.
+The middleware manager uses PostgreSQL to store middleware inventory data. You can install PostgreSQL 9.5 Server on RHEL systems using `yum`.
 
 . Enable the software collection 2.2 repository to get the required version of PostgreSQL.
 +
