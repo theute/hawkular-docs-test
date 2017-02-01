@@ -39,21 +39,21 @@ yum install docker
 +
 [source, bash]
 ----
-systemctl start docker.service
+systemctl start docker
 ----
 +
 . Enable the Docker service.
 +
 [source, bash]
 ----
-systemctl enable docker.service
+systemctl enable docker
 ----
 
 == Installing and Configuring PostgreSQL Server 9.5
 ////
 Would like to include a short overview of why we need PostgreSQL, that is, what we're using it for vs. Cassandra.
 ////
-The middleware manager uses PostgreSQL to store middleware inventory data. You can install PostgreSQL 9.5 Server on RHEL systems using `yum`.
+The middleware manager uses PostgreSQL to store middleware inventory data. You can install PostgreSQL 9.5 Server on Red Hat Enterprise Linux systems using `yum`.
 
 . Enable the software collection 2.2 repository to get the required version of PostgreSQL.
 +
@@ -67,17 +67,16 @@ subscription-manager repos --enable rhel-server-rhscl-7-rpms
 [source, bash]
 ----
 yum install rh-postgresql95
-scl enable rh-postgresql95 bash
-postgresql-setup --initdb
-service rh-postgresql95-postgresql start
-systemctl enable rh-postgresql95-postgresql.service
+scl enable rh-postgresql95 'postgresql-setup --initdb'
+systemctl enable rh-postgresql95-postgresql
+systemctl start rh-postgresql95-postgresql
 ----
 +
 . Open the firewall for PostgreSQL remote connections.
 +
 ----
-sudo firewall-cmd --permanent --add-port=5432/tcp
-sudo firewall-cmd --add-port=5432/tcp
+firewall-cmd --permanent --add-port=5432/tcp
+firewall-cmd --add-port=5432/tcp
 ----
 +
 . Edit *_/var/opt/rh/rh-postgresql95/lib/pgsql/data/postgresql.conf_* to allow remote connections.  Add the following line:
@@ -87,7 +86,7 @@ sudo firewall-cmd --add-port=5432/tcp
 listen_addresses = '*'
 ----
 +
-. Edit *_/var/lib/pgsql/data/pg_hba.conf_* to allow a user to connect to the *mwmanager* database.  Add the following line (Replace `_my_db_username_` with the value of your choice):
+. Edit *_/var/opt/rh/rh-postgresql95/lib/pgsql/data/pg_hba.conf_* to allow a user to connect to the *mwmanager* database.  Add the following line (Replace `_my_db_username_` with the value of your choice):
 +
 .pg_hba.conf
 ----
@@ -98,15 +97,14 @@ host   mwmanager   my_db_username   0.0.0.0/0   md5
 +
 [source, bash]
 ----
-systemctl restart rh-postgresql95-postgresql.service
+systemctl restart rh-postgresql95-postgresql
 ----
 +
 . Create the *mwmanager* database.
 +
 ----
 su postgres
-systemctl enable rh-postgresql95-postgresql.service
-psql
+scl enable rh-postgresql95 'psql'
 ----
 +
 Replace `_my_db_username_` with the value chosen in *_pg_hba.conf_* and `_my_db_password_` with the value of your choice.
