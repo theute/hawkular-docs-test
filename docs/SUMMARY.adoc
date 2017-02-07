@@ -1,0 +1,13 @@
+=
+Summary
+
+. link:README_COMMUNITY.adoc[Introduction]
+. Prerequisities
+.. link:topics/Architecture_Overview.adoc[Architecture Overview]
+.. link:topics/Installation_Checklist_Server.adoc[Checklist]
+.. link:topics/Installation_Prerequisites_Server.adoc[Prerequisites]
+. link:topics/Installing_the_Middleware_Management_Server.adoc[Installing the Middleware Management Server]
+. Initial Configuration
+.. link:topics/Adding_a_Middleware_Management_Provider.adoc[Adding a Middleware Management Provider]
+.. link:topics/Installing_the_Middleware_Management_Agent.adoc[Installing the Middleware Management Agent]
+.. link:topics/Installation_Cassandra_Cluster.adoc[Installation of a Cassandra cluster]

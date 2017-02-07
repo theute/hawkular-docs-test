@@ -1,0 +1,24 @@
+{
+  "gitbook": "3.x.x",
+  "root": "docs",
+  "structure": {
+    "readme": "README_COMMUNITY.adoc",
+    "summary": "SUMMARY.adoc"
+  },
+  "plugins": [
+    "toggle-chapters",
+    "ungrey",
+    "splitter",
+    "ga",
+    "redhat@git+https://github.com/theute/gitbook-redhat-plugin"
+  ],
+  "pluginsConfig": {
+    "ga": {
+      "token": "UA-86673245-1"
+    }
+  },
+
+  "variables": {
+    "ProductName": "Hawkular Middleware Manager"
+  }
+}
